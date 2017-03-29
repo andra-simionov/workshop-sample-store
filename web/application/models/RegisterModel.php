@@ -8,9 +8,9 @@ class RegisterModel extends CI_Model
     }
 
     /**
-     * @param $username
-     * @param $password
-     * @param $email
+     * @param string $username
+     * @param string $password
+     * @param string $email
      * @return bool
      */
     public function registerUser($username, $password, $email)

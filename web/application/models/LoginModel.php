@@ -35,12 +35,9 @@ class LoginModel extends CI_Model
      */
     public function getUserInfo(array $data)
     {
-        $username = $this->db->escape($data['username']);
-        $password = $this->db->escape($data['password']);
-
         $result = $this->db->select('*')
             ->from('users')
-            ->where(['Username' => $username, 'Password' => $password])
+            ->where(['Username' => $data['username'], 'Password' => $data['password']])
             ->get()
             ->result_array();
 

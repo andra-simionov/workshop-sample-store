@@ -59,16 +59,16 @@
 
                         {form_open('RegisterForm')}
                         <div class="form-group">
-                            <label class="sr-only" for="form-username">Name</label>
-                            <input type="text" name="username" id="username" placeholder="Username..." class="form-username form-control" id="form-username">
+                            <label class="sr-only" for="form-username">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Username..." class="form-username form-control">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="form-password">Email</label>
-                            <input type="text" name="email" id="email" placeholder="Email..." class="form-password form-control" id="form-password">
+                            <input type="text" name="email" id="email" placeholder="Email..." class="form-password form-control">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="form-password">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Password..." class="form-password form-control" id="form-password">
+                            <input type="password" name="password" id="password" placeholder="Password..." class="form-password form-control"">
                         </div>
 
 
@@ -79,7 +79,7 @@
                         </div>
                         {form_close()}
                     </div>
-                </div>
+                </div>r
             </div>
         </div>
     </div>

@@ -33,5 +33,16 @@ CREATE TABLE IF NOT EXISTS `orders` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=0
+
+CREATE TABLE IF NOT EXISTS `credit_cards` (
+	`IdCreditCard` INT(11) NOT NULL AUTO_INCREMENT,
+	`IdUser` INT(11) NOT NULL,
+	`CardNumber` INT(19) NOT NULL,
+	`Cvv` INT(4) NOT NULL,
+	`Sold` INT(11) NOT NULL
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
 AUTO_INCREMENT=0;
 

@@ -2,11 +2,9 @@
 
 class HomepageModel extends CI_Model
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
+    /**
+     * @return array
+     */
     public function getProducts()
     {
         $result = $this->db->select(['ProductName', 'Price'])
