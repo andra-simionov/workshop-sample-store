@@ -27,42 +27,36 @@ class Login extends CI_Controller
             ]
         ];
 
-//        var_dump($this->input->post); die();
-//        var_dump($this->input->post('username'));
-//        var_dump($this->input->post('password')); die();
-
-
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == FALSE && !isset($this->session->all_userdata()['Username'])) {
             $smartyci->display('LoginView.tpl');
         } else if ($this->form_validation->run() == TRUE && !isset($this->session->all_userdata()['Username'])) {
+
             $data = [
                 'username' => $this->input->post('username'),
-                'userpassword' => $this->input->post('password')
+                'password' => $this->input->post('password')
             ];
 
-            var_dump($data); die();
-
-            $result = $this->LoginModel->login($data);
+//            $result = $this->LoginModel->login($data);
+            $result = FALSE;
 
             if ($result != TRUE) {
                 $smartyci->assign('eroare', 'Invalid username or password');
                 $smartyci->display('LoginError.tpl');
             } else {
-                $data = $this->input->post('username');
-                $result = $this->LoginModel->getUserInfo($data);
-                $this->LoginModel->updateLastLogin($result['Id']);
+                $username = $this->input->post('username');
+//                $result = $this->LoginModel->getUserInfo($data);
+//                $this->LoginModel->updateLastLogin($result['Id']);
 
-                $this->session->set_userdata($result);
+                //  $this->session->set_userdata($result);
+                $this->session->set_userdata(['Username' => $username]);
 
-                $smartyci->display('LoginSuccess.tpl',$data);
+                $smartyci->display('LoginSuccess.tpl');
 
             }
         } else {
-
             $smartyci->display('LoginSuccess.tpl');
-
 
         }
     }

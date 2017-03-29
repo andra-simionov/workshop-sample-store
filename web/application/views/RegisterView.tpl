@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
                     <div class="description">
-                        <h1>Sign in to your account</h1>
+                        <h1>Subscribe to our website</h1>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
                         <div class="form-top-left">
-                            <p>Enter your username and password to log on:</p>
+
                         </div>
                         <div class="form-top-right">
                             <i class="fa fa-lock"></i>
@@ -57,15 +57,20 @@
                     </div>
                     <div class="form-bottom">
 
-                        {form_open('login')}
+                        {form_open('register')}
                         <div class="form-group">
                             <label class="sr-only" for="form-username">Name</label>
                             <input type="text" name="username" id="username" placeholder="Username..." class="form-username form-control" id="form-username">
                         </div>
                         <div class="form-group">
+                            <label class="sr-only" for="form-password">Email</label>
+                            <input type="password" name="email" id="email" placeholder="Email..." class="form-password form-control" id="form-password">
+                        </div>
+                        <div class="form-group">
                             <label class="sr-only" for="form-password">Password</label>
                             <input type="password" name="password" id="password" placeholder="Password..." class="form-password form-control" id="form-password">
                         </div>
+
 
                         {validation_errors()}
 
