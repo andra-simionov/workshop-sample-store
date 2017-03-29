@@ -39,7 +39,7 @@ class Login extends CI_Controller
             ];
 
 //            $result = $this->LoginModel->login($data);
-            $result = FALSE;
+            $result = TRUE;
 
             if ($result != TRUE) {
                 $smartyci->assign('eroare', 'Invalid username or password');
