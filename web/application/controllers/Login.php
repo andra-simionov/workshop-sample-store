@@ -49,10 +49,10 @@ class Login extends CI_Controller
                 $this->session->set_userdata($result);
                 $this->session->set_userdata(['Username' => $username]);
 
-                $smartyci->display('LoginSuccess.tpl');
+                $smartyci->display('SampleStore.tpl');
             }
         } else {
-            $smartyci->display('LoginSuccess.tpl');
+            $smartyci->display('SampleStore.tpl');
         }
     }
 }
