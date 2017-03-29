@@ -29,6 +29,11 @@ class Login extends CI_Controller
 
         $this->form_validation->set_rules($config);
 
+        $smartyci->assign("products",
+            ['product1' => 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis',
+             'product2' => '2Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisi'
+             ]);
+
         if ($this->form_validation->run() == FALSE && !isset($this->session->all_userdata()['Username'])) {
             $smartyci->display('LoginView.tpl');
         } else if ($this->form_validation->run() == TRUE && !isset($this->session->all_userdata()['Username'])) {
@@ -49,11 +54,11 @@ class Login extends CI_Controller
                 $this->session->set_userdata($result);
                 $this->session->set_userdata(['Username' => $username]);
 
-                $smartyci->display('SampleStore.tpl');
+                redirect('Homepage');
             }
         } else {
-            $smartyci->display('SampleStore.tpl');
-        }
+            redirect('Homepage');
+         }
     }
 }
 
