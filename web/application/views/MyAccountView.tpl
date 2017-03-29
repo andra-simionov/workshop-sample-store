@@ -22,32 +22,22 @@
 <!-- HEADER -->
 <header role="banner">
 
+
     <!-- Top Navigation -->
     <nav class="background-white background-primary-hightlight">
         <div class="line">
             <div class="top-nav s-12 l-10">
                 <p class="nav-text"></p>
                 <ul class="right chevron">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a>Services</a>
-                        <ul>
-                            <li><a>Service 1</a>
-                                <ul>
-                                    <li><a>Service 1 A</a></li>
-                                    <li><a>Service 1 B</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Service 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{site_url('Homepage')}">Products</a></li>
+                    <li><a href="{site_url('Login')}"> Login </a></li>
+                    <li><a href="{site_url('RegisterPage')}"> Register </a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
+
 </header>
 
 <!-- MAIN -->
@@ -55,7 +45,7 @@
     <!-- Content -->
     <article>
         <header class="section background-primary text-center">
-            <h1 class="text-white margin-bottom-0 text-size-50 text-thin text-line-height-1">Contact US</h1>
+            <h1 class="text-white margin-bottom-0 text-size-50 text-thin text-line-height-1">Account informations</h1>
         </header>
         <div class="section background-white">
             <div class="line">
@@ -85,21 +75,18 @@
                     <div class="s-12 m-12 l-6">
                         <h2 class="text-uppercase text-strong margin-bottom-30">Card Data</h2>
                         <form class="customform">
+                            <div class="s-12">
+                                <input name="cardNumber" class="subject border-radius" placeholder="{$cardNumber}" title="Subject" type="text" />
+                            </div>
                             <div class="line">
                                 <div class="margin">
                                     <div class="s-12 m-12 l-6">
-                                        <input name="email" class="required email border-radius" placeholder="{$cardNumber}" title="Your e-mail" type="text" />
+                                        <input name="cvv" class="border-radius" placeholder="{$cvv}" title="Your e-mail" type="text" />
                                     </div>
                                     <div class="s-12 m-12 l-6">
-                                        <input name="name" class="name border-radius" placeholder="Your name" title="Your name" type="text" />
+                                        <input name="cardExpDate" class="name border-radius" placeholder="{$cardExpDate}" title="Your name" type="text" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="s-12">
-                                <input name="subject" class="subject border-radius" placeholder="Subject" title="Subject" type="text" />
-                            </div>
-                            <div class="s-12">
-                                <textarea name="message" class="required message border-radius" placeholder="Your message" rows="3"></textarea>
                             </div>
                             <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white" type="submit">Submit Button</button></div>
                         </form>
