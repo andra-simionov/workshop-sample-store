@@ -1,7 +1,7 @@
 # table schema queries
-CREATE DATABASE IF NOT EXISTS `online_shop`;
+CREATE DATABASE IF NOT EXISTS `sample_store`;
 
-USE `online_shop`;
+USE `sample_store`;
 
 CREATE TABLE IF NOT EXISTS `users` (
 	`IdUser` INT(11) NOT NULL AUTO_INCREMENT,
