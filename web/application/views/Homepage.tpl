@@ -31,19 +31,18 @@
 
             <div class="line">
                 <div class="margin text-center">
-            {foreach  $products as $productName => $productInfo}
+                {foreach  $products as $index => $productInfo}
 
-                        <div class="s-12 m-12 l-4 margin-bottom">
-                            <div class="padding-2x block-bordered border-radius">
-                                <i class="icon-paperplane_ico icon2x text-primary margin-bottom-30"></i>
-                                <h2 class="text-thin">{$productName}</h2>
-                                <p class="margin-bottom-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
-                                <a class="button border-radius background-primary text-size-12 text-white text-strong" href="/">GET MORE INFO</a>
-                            </div>
+                    <div class="s-12 m-12 l-4 margin-bottom">
+                        <div class="padding-2x block-bordered border-radius">
+                            <i class="icon-paperplane_ico icon2x text-primary margin-bottom-30"></i>
+                            <h2 class="text-thin">{$productInfo['ProductName']}</h2>
+                            <p class="margin-bottom-30">Price: {$productInfo['Price']}</p>
+                            <a class="button border-radius background-primary text-size-12 text-white text-strong" href="/">BUY</a>
                         </div>
+                    </div>
 
-
-            {/foreach}
+                {/foreach}
                 </div>
             </div>
 

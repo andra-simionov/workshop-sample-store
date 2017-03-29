@@ -10,10 +10,9 @@ class Homepage extends CI_Controller
         $this->load->library('session');
         $smartyci = new Smartyci();
 
-        $smartyci->assign("products",
-            ['product1' => 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis',
-                'product2' => '2Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisi'
-            ]);
+        $result = $this->HomepageModel->getProducts();
+
+        $smartyci->assign("products", $result);
 
         $smartyci->display('Homepage.tpl');
     }

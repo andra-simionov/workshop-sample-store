@@ -11,7 +11,7 @@ class LoginModel extends CI_Model
      * @param array $data
      * @return bool
      */
-    public function isUserRegistred(array $data)
+    public function isUserRegistered(array $data)
     {
         $username = $data['username'];
         $password = $data['password'];
