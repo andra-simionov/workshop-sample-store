@@ -71,7 +71,7 @@
                             <input type="password" name="password" id="password" placeholder="Password..." class="form-password form-control" id="form-password">
                         </div>
 
-                        {$eroare}
+                        {$error}
 
                         <div class="submit">
                             <input type="submit" value="Submit" />

@@ -4,13 +4,13 @@ class Login extends CI_Controller
 {
     function index()
     {
-
         parent::__construct();
+
         $this->load->helper(['form', 'url']);
         $this->load->library('Smartyci');
         $this->load->library('session');
         $this->load->library('form_validation');
-        //$this->load->model('LoginModel');
+
         $smartyci = new Smartyci();
         $smartyci->setCompileCheck(false);
 
@@ -38,26 +38,21 @@ class Login extends CI_Controller
                 'password' => $this->input->post('password')
             ];
 
-//            $result = $this->LoginModel->login($data);
-            $result = TRUE;
+            $result = $this->LoginModel->isUserRegistred($data);
 
             if ($result != TRUE) {
-                $smartyci->assign('eroare', 'Invalid username or password');
+                $smartyci->assign('error', 'Invalid username or password');
                 $smartyci->display('LoginError.tpl');
             } else {
                 $username = $this->input->post('username');
-//                $result = $this->LoginModel->getUserInfo($data);
-//                $this->LoginModel->updateLastLogin($result['Id']);
-
-                //  $this->session->set_userdata($result);
+                $result = $this->LoginModel->getUserInfo($data);
+                $this->session->set_userdata($result);
                 $this->session->set_userdata(['Username' => $username]);
 
                 $smartyci->display('LoginSuccess.tpl');
-
             }
         } else {
             $smartyci->display('LoginSuccess.tpl');
-
         }
     }
 }
