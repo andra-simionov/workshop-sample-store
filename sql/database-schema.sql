@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `credit_cards` (
 	`IdUser` INT(11) NOT NULL,
 	`CardNumber` INT(19) NOT NULL,
 	`Cvv` INT(4) NOT NULL,
-	`Sold` INT(11) NOT NULL
+	`Sold` INT(11) NOT NULL,
+  PRIMARY KEY (`IdCreditCard`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
