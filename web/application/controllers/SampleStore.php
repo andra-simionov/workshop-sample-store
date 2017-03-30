@@ -1,6 +1,6 @@
 <?php
 
-class Homepage extends CI_Controller
+class SampleStore extends CI_Controller
 {
     function index()
     {
@@ -15,7 +15,7 @@ class Homepage extends CI_Controller
         $allProducts = $this->HomepageModel->getProducts();
         $smartyci->assign("products", $allProducts);
 
-        $smartyci->display('Homepage.tpl');
+        $smartyci->display('SampleStore.tpl');
     }
 }
 

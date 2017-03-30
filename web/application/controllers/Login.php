@@ -48,10 +48,10 @@ class Login extends CI_Controller
             } else {
                 $result = $this->LoginModel->getUserInfo($data);
                 $this->session->set_userdata($result);
-                redirect('Homepage');
+                redirect('SampleStore');
             }
         } else {
-            redirect('Homepage');
+            redirect('SampleStore');
          }
     }
 }

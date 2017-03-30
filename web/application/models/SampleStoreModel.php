@@ -1,6 +1,6 @@
 <?php
 
-class HomepageModel extends CI_Model
+class SampleStoreModel extends CI_Model
 {
     /**
      * @return array
