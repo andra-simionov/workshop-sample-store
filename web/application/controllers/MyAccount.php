@@ -13,22 +13,15 @@ class MyAccount extends CI_Controller
 
         $smartyci = new Smartyci();
 
-        //todo check if isset
-        $username = 'diana'; //$this->session->all_userdata()['Username'];
-        $userData = $this->MyAccountModel->getUserData($username);
-        $userData = [
-            'Email' => 'ddddddd',
-            'CardNumber' => '1231',
-            'CardExpDate' => '17.03.2195',
-            'Cvv' => '123',
-            'Username' => 'dummy'
-        ];
+        //todo - check if isset
+        $idUser = 1; //$this->session->all_userdata()['IdUser'];
+        $userData = $this->MyAccountModel->getUserData($idUser);
+
+        $userOrders = $this->MyAccountModel->getUserOrders($idUser);
 
         $smartyci->assign("email", $userData['Email']);
         $smartyci->assign("username", $userData['Username']);
-        $smartyci->assign("cardNumber", $userData['CardNumber']);
-        $smartyci->assign("cardExpDate", $userData['CardExpDate']);
-        $smartyci->assign("cvv", $userData['Cvv']);
+        $smartyci->assign("orders", $userOrders);
 
         $smartyci->display('MyAccountView.tpl');
     }

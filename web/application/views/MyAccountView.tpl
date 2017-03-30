@@ -71,30 +71,46 @@
 
                     </div>
 
-                    <!-- Contact Form -->
-                    <div class="s-12 m-12 l-6">
-                        <h2 class="text-uppercase text-strong margin-bottom-30">Card Data</h2>
-                        <form class="customform">
-                            <div class="s-12">
-                                <input name="cardNumber" class="subject border-radius" placeholder="{$cardNumber}" title="Subject" type="text" />
-                            </div>
-                            <div class="line">
-                                <div class="margin">
-                                    <div class="s-12 m-12 l-6">
-                                        <input name="cvv" class="border-radius" placeholder="{$cvv}" title="Your e-mail" type="text" />
-                                    </div>
-                                    <div class="s-12 m-12 l-6">
-                                        <input name="cardExpDate" class="name border-radius" placeholder="{$cardExpDate}" title="Your name" type="text" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white" type="submit">Submit Button</button></div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
     </article>
+
+    <h4 class="text-strong margin-bottom-0">History:</h4>
+    <br>
+        <table class="section background-white">
+            <tr>
+                <th>
+                    Nr.
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Product name
+                </th>
+                <th>
+                    Product price
+                </th>
+            </tr>
+            {foreach  $orders as $index => $orderInfo}
+            <tr>
+                <td>
+                    {$index}
+                </td>
+                <td>
+                    {$orderInfo['Date']}
+                </td>
+                <td>
+                   {$orderInfo['ProductName']}
+                </td>
+                <td>
+                    {$orderInfo['Price']}
+                </td>
+            </tr>
+            {/foreach}
+        </table>
+</main>
 
 <script type="text/javascript" src="../../shopAssests/js/responsee.js"></script>
 <script type="text/javascript" src="../../shopAssests/owl-carousel/owl.carousel.js"></script>
