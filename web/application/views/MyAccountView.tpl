@@ -43,29 +43,55 @@
     <!-- Content -->
     <article>
         <header class="section background-primary text-center">
-            <h1 class="text-white margin-bottom-0 text-size-50 text-thin text-line-height-1">Account informations</h1>
+            <h1 class="text-white margin-bottom-0 text-size-50 text-thin text-line-height-1">Account information</h1>
         </header>
         <div class="section background-white">
             <div class="line">
                 <div class="margin">
 
                     <!-- Account Information -->
-                    <div class="s-12 m-12 l-6">
-                        <div class="float-left">
-                            <i class="icon-paperplane_ico background-primary icon-circle-small text-size-20"></i>
+                    <div class="s-12 m-12 l-12">
+                        <h2 class="text-uppercase text-strong margin-bottom-30">User Profile</h2>
+                        <div class="margin-bottom">
+                            <h4 class="margin-bottom-0">Username: {$username}</h4>
                         </div>
-                        <div class="margin-left-80 margin-bottom">
-                            <h4 class="text-strong margin-bottom-0">Username</h4>
-                            <p>{$username}</p>
-                        </div>
-
-                        <div class="float-left">
-                            <i class="icon-paperplane_ico background-primary icon-circle-small text-size-20"></i>
-                        </div>
-                        <div class="margin-left-80 margin-bottom">
-                            <h4 class="text-strong margin-bottom-0">Email</h4>
-                            <p>{$email}</p>
-                        </div>
+                        <div class="margin-bottom">
+                            <h4 class="margin-bottom-0">E-mail: {$email}</h4>
+                        </div><br>
+                        <!-- Order History -->
+                        <h2 class="text-uppercase text-strong margin-bottom-30">Order History</h2>
+                        <table class="section background-white">
+                            <tr>
+                                <th>
+                                    Nr.
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Product name
+                                </th>
+                                <th>
+                                    Product price
+                                </th>
+                            </tr>
+                            {foreach  $orders as $index => $orderInfo}
+                                <tr>
+                                    <td>
+                                        {$index}
+                                    </td>
+                                    <td>
+                                        {$orderInfo['Date']}
+                                    </td>
+                                    <td>
+                                        {$orderInfo['ProductName']}
+                                    </td>
+                                    <td>
+                                        {$orderInfo['Price']}
+                                    </td>
+                                </tr>
+                            {/foreach}
+                        </table>
 
                     </div>
 
@@ -73,41 +99,6 @@
             </div>
         </div>
     </article>
-
-    <h4 class="text-strong margin-bottom-0">History:</h4>
-    <br>
-        <table class="section background-white">
-            <tr>
-                <th>
-                    Nr.
-                </th>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Product name
-                </th>
-                <th>
-                    Product price
-                </th>
-            </tr>
-            {foreach  $orders as $index => $orderInfo}
-            <tr>
-                <td>
-                    {$index}
-                </td>
-                <td>
-                    {$orderInfo['Date']}
-                </td>
-                <td>
-                   {$orderInfo['ProductName']}
-                </td>
-                <td>
-                    {$orderInfo['Price']}
-                </td>
-            </tr>
-            {/foreach}
-        </table>
 </main>
 
 <script type="text/javascript" src="../../shopAssests/js/responsee.js"></script>
