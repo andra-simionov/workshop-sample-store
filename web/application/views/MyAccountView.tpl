@@ -14,7 +14,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="../../shopAssests/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../../shopAssests/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../../shopAssests/js/validation.js"></script>
 </head>
 
 <body class="size-1140">
