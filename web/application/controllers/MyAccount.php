@@ -8,7 +8,6 @@ class MyAccount extends CI_Controller
 
         $this->load->helper(['form', 'url']);
         $this->load->library('Smartyci');
-        $this->load->library('session');
         $this->load->library('form_validation');
 
         $smartyci = new Smartyci();

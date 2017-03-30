@@ -42,6 +42,6 @@ class RegisterForm extends CI_Controller
             $this->RegisterModel->registerUser($username, $password, $email);
         }
 
-        $smartyci->display('RegisterView.tpl');
+        redirect('Login');
     }
 }
