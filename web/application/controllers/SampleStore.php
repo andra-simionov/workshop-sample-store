@@ -12,7 +12,7 @@ class SampleStore extends CI_Controller
         $this->load->library('session');
         $smartyci = new Smartyci();
 
-        $allProducts = $this->HomepageModel->getProducts();
+        $allProducts = $this->SampleStoreModel->getProducts();
         $smartyci->assign("products", $allProducts);
 
         $smartyci->display('SampleStore.tpl');
