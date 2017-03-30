@@ -51,8 +51,7 @@
                             <i class="icon-paperplane_ico icon2x text-primary margin-bottom-30"></i>
                             <h2 class="text-thin">{$productInfo['ProductName']}</h2>
                             <p class="margin-bottom-30">Price: {$productInfo['Price']}</p>
-                            <button class="button border-radius background-primary text-size-12 text-white text-strong" data-toggle="modal" data-target="#myModal"                                                    onclick="buy('{$productInfo['IdProduct']}','{$idUser}')" ><i class="fa
-                            fa-pencil"></i>BUY</button>
+                            <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="buy('{$productInfo['IdProduct']}','{$idUser}')"                                        >BUY</button>
                         </div>
                     </div>
 

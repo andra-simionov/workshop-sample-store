@@ -21,7 +21,6 @@
 <!-- HEADER -->
 <header role="banner">
 
-
     <!-- Top Navigation -->
     <nav class="background-white background-primary-hightlight">
         <div class="line">
