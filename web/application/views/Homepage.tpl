@@ -25,9 +25,8 @@
         <div class="top-nav s-12 l-10">
             <p class="nav-text"></p>
             <ul class="right chevron">
-                <li><a href="{site_url('Login')}"> Login </a></li>
-                <li><a href="{site_url('RegisterPage')}"> Register </a></li>
-                <li><a href="{site_url('MyAccount')}"> MyAccount </a></li>
+                <li><a href="{site_url('MyAccount')}">MyAccount</a></li>
+                <li><a href="{site_url('Logout')}"> Logout </a></li>
             </ul>
         </div>
     </div>

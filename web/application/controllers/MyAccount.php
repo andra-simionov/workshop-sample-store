@@ -19,8 +19,9 @@ class MyAccount extends CI_Controller
 
         $userOrders = $this->MyAccountModel->getUserOrders($idUser);
 
-        $smartyci->assign("email", $userData['Email']);
-        $smartyci->assign("username", $userData['Username']);
+        $smartyci->assign("email", $userData->Email);
+        $smartyci->assign("username", $userData->Username);
+
         $smartyci->assign("orders", $userOrders);
 
         $smartyci->display('MyAccountView.tpl');

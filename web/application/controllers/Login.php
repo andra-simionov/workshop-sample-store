@@ -38,6 +38,8 @@ class Login extends CI_Controller
                 'password' => $this->input->post('password')
             ];
 
+            //todo - encrypt password
+
             $result = $this->LoginModel->isUserRegistered($data);
 
             if ($result != TRUE) {

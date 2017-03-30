@@ -9,17 +9,16 @@ class MyAccountModel extends CI_Model
 
     /**
      * @param int $idUser
-     * @return array
+     * @return stdClass
      */
     public function getUserData($idUser)
     {
         $result = $this->db->select('*')
             ->from('users')
             ->where('users.IdUser', $idUser)
-            ->get()
-            ->result_array();
+            ->get();
 
-        return $result;
+        return $result->first_row();
     }
 
 

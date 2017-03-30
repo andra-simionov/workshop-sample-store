@@ -30,8 +30,7 @@
                 <p class="nav-text"></p>
                 <ul class="right chevron">
                     <li><a href="{site_url('Homepage')}">Products</a></li>
-                    <li><a href="{site_url('Login')}"> Login </a></li>
-                    <li><a href="{site_url('RegisterPage')}"> Register </a></li>
+                    <li><a href="{site_url('Logout')}"> Logout </a></li>
                 </ul>
             </div>
         </div>
