@@ -8,6 +8,7 @@ class Payment extends CI_Controller
 
         $this->load->helper(['form', 'url']);
         $this->load->library('form_validation');
+        $this->load->library('session');
 
         $idUser = $this->input->post('idUser');
         $idProduct = $this->input->post('idProduct');

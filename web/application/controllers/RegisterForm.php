@@ -9,8 +9,7 @@ class RegisterForm extends CI_Controller
         $this->load->helper(['form', 'url']);
         $this->load->library('Smartyci');
         $this->load->library('form_validation');
-
-        $smartyci = new Smartyci();
+        $this->load->library('session');
 
         $username = $this->input->post('username');
         $password = $this->input->post('password');
