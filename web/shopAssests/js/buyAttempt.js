@@ -1,5 +1,5 @@
 function buy(idProduct, idUser) {
     $.post("Payment", {idProduct: idProduct, idUser: idUser}).done(function () {
-        console.log("dddd");
+        alert("You just bought the product!")
     })
 }

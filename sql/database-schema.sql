@@ -26,7 +26,7 @@ AUTO_INCREMENT=0;
 
 CREATE TABLE IF NOT EXISTS `orders` (
 	`IdOrder` INT(11) NOT NULL AUTO_INCREMENT,
-	`Date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+	`Date` timestamp NULL,
 	`IdUser` INT(11) NOT NULL,
 	`IdProduct` INT(11) NOT NULL,
 	PRIMARY KEY (`IdOrder`)
