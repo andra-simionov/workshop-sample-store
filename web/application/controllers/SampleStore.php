@@ -15,6 +15,9 @@ class SampleStore extends CI_Controller
         $allProducts = $this->SampleStoreModel->getProducts();
         $smartyci->assign("products", $allProducts);
 
+        $idUser = 1; //todo -session
+        $smartyci->assign("idUser", $idUser);
+
         $smartyci->display('SampleStore.tpl');
     }
 }

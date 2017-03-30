@@ -51,7 +51,7 @@
                             <i class="icon-paperplane_ico icon2x text-primary margin-bottom-30"></i>
                             <h2 class="text-thin">{$productInfo['ProductName']}</h2>
                             <p class="margin-bottom-30">Price: {$productInfo['Price']}</p>
-                            <button class="button border-radius background-primary text-size-12 text-white text-strong" data-toggle="modal" data-target="#myModal"><i class="fa
+                            <button class="button border-radius background-primary text-size-12 text-white text-strong" data-toggle="modal" data-target="#myModal"                                                    onclick="buy('{$productInfo['IdProduct']}','{$idUser}')" ><i class="fa
                             fa-pencil"></i>BUY</button>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
 <script type="text/javascript" src="../../shopAssests/js/responsee.js"></script>
 <script type="text/javascript" src="../../shopAssests/owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript" src="../../shopAssests/js/template-scripts.js"></script>
-
+<script src="../../shopAssests/js/buyAttempt.js"></script>
 
 
 </body>
