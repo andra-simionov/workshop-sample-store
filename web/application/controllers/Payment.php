@@ -13,7 +13,8 @@ class Payment extends CI_Controller
         $idUser = $this->input->post('idUser');
         $idProduct = $this->input->post('idProduct');
 
-        $this->PaymentModel->saveOrder($idUser, $idProduct);
+        $this->session->set_userdata(['IdUser' => $idUser]);
 
+        $this->PaymentModel->saveOrder($idUser, $idProduct);
        }
 }
