@@ -12,6 +12,6 @@ class Register extends CI_Controller
 
         $smartyci = new Smartyci();
 
-        $smartyci->display('RegisterView.tpl');
+        redirect('SuccessfullyRegistered');
     }
 }

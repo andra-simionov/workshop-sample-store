@@ -13,12 +13,12 @@ class MyAccount extends CI_Controller
 
         $smartyci = new Smartyci();
 
-        //todo - check if isset
-        $idUser = 1; //$this->session->all_userdata()['IdUser'];
+        $idUser = $this->session->all_userdata()['IdUser'];
         $userData = $this->MyAccountModel->getUserData($idUser);
 
         $userOrders = $this->MyAccountModel->getUserOrders($idUser);
 
+        $smartyci->assign("idUser", $idUser);
         $smartyci->assign("email", $userData->Email);
         $smartyci->assign("username", $userData->Username);
 

@@ -30,16 +30,14 @@ class Login extends CI_Controller
 
         $this->form_validation->set_rules($config);
 
-        if ($this->form_validation->run() == FALSE && !isset($this->session->all_userdata()['Username'])) {
+        if ($this->form_validation->run() == FALSE && !isset($this->session->all_userdata()['IdUser'])) {
             $smartyci->display('LoginView.tpl');
-        } else if ($this->form_validation->run() == TRUE && !isset($this->session->all_userdata()['Username'])) {
+        } else if ($this->form_validation->run() == TRUE && !isset($this->session->all_userdata()['IdUser'])) {
 
             $data = [
                 'username' => $this->input->post('username'),
                 'password' => $this->input->post('password')
             ];
-
-            //todo - encrypt password
 
             $result = $this->LoginModel->isUserRegistered($data);
 
@@ -47,12 +45,18 @@ class Login extends CI_Controller
                 $smartyci->assign('error', 'Invalid username or password');
                 $smartyci->display('LoginError.tpl');
             } else {
-                $result = $this->LoginModel->getUserInfo($data);
-                $this->session->set_userdata($result);
-                redirect('SampleStore');
+                $userInfo = $this->MyAccountModel->getUserInfo($data['username']);
+
+                $userId = $userInfo->IdUser;
+                $this->session->set_userdata(['IdUser' => $userId]);
+
+                redirect('SampleStore/loggedIn/' . $userId);
             }
         } else {
-            redirect('SampleStore');
+            $userId = $this->session->all_userdata()['IdUser'];
+            redirect('SampleStore/loggedIn/' . $userId);
+
+            //$smartyci->display('Homepage.tpl');
          }
     }
 }

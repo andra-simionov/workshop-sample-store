@@ -37,4 +37,18 @@ class MyAccountModel extends CI_Model
 
         return $result;
     }
+
+    /**
+     * @param string $username
+     * @return mixed
+     */
+    public function getUserInfo($username)
+    {
+        $result = $this->db->select('*')
+            ->from('users')
+            ->where('users.Username', $username)
+            ->get();
+
+        return $result->first_row();
+    }
 }

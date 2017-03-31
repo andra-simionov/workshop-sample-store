@@ -8,15 +8,22 @@ class SampleStore extends CI_Controller
 
         $this->load->helper(['form', 'url']);
         $this->load->library('session');
+     }
+
+    function loggedIn($idUser)
+    {
+        $this->load->helper(['form', 'url']);
+        $this->load->library('session');
         $this->load->library('Smartyci');
+
+        $this->session->set_userdata(['IdUser' => $idUser]);
+
         $smartyci = new Smartyci();
 
         $allProducts = $this->SampleStoreModel->getProducts();
         $smartyci->assign("products", $allProducts);
 
-        $idUser = 1; //todo -session
         $smartyci->assign("idUser", $idUser);
-
         $smartyci->display('SampleStore.tpl');
     }
 }
