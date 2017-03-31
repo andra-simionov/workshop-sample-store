@@ -1,6 +1,6 @@
 <?php
 
-class SampleStore extends MY_Controller
+class SampleStore extends CI_Controller
 {
     function index()
     {
