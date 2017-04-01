@@ -17,11 +17,11 @@ class Payment extends CI_Controller
 //        $idUser = $this->input->get('idUser');
 //        $idProduct = $this->input->get('idProduct');
 
-        $userInfo = $this->MyAccountModel->getUserData($idUser);
+        $userInfo = $this->UserModel->getUserData($idUser);
         $email = $userInfo->Email;
 
         try {
-            $productInfo = $this->PaymentModel->getProductDetails($idProduct);
+            $productInfo = $this->SampleStoreModel->getProductDetails($idProduct);
             $this->PaymentModel->saveOrder((int)$idUser, (int)$idProduct);
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
             $this->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency);

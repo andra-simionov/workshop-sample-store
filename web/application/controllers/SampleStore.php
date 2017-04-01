@@ -10,7 +10,7 @@ class SampleStore extends CI_Controller
 
         $idUser = $this->session->all_userdata()['IdUser'];
 
-        $allProducts = $this->SampleStoreModel->getProducts();
+        $allProducts = $this->SampleStoreModel->getAllProducts();
 
         $this->smartyci->assign("products", $allProducts);
 

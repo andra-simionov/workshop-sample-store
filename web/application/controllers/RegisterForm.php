@@ -40,9 +40,9 @@ class RegisterForm extends CI_Controller
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == TRUE) {
-            $this->RegisterModel->registerUser($username, $password, $email);
+            $this->UserModel->registerUser($username, $password, $email);
         }
 
-        $this->smartyci->display('SuccessfullyRegisteredView.tpl');
+        $this->smartyci->display('Register/SuccessfullyRegisteredView.tpl');
     }
 }

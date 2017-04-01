@@ -12,6 +12,6 @@ class Register extends CI_Controller
 
         $this->smartyci->setCompileCheck(false);
 
-        $this->smartyci->display('RegisterView.tpl');
+        $this->smartyci->display('Register/RegisterView.tpl');
     }
 }
