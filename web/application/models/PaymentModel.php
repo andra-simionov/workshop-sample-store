@@ -7,6 +7,16 @@ class PaymentModel extends CI_Model
         parent::__construct();
     }
 
+    public function getProductDetails($idProduct)
+    {
+        $result = $this->db->select('*')
+            ->from('products')
+            ->where('products.IdProduct', $idProduct)
+            ->get();
+
+        return $result->first_row();
+    }
+
     /**
      * @param int $idUser
      * @param int $idProduct

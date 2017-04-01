@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 	`IdProduct` INT(11) NOT NULL AUTO_INCREMENT,
 	`ProductName` VARCHAR(50) NOT NULL DEFAULT '',
 	`Price` INT(5) NOT NULL,
+	`Currency` VARCHAR(3) NOT NULL DEFAULT 'RON',
 	PRIMARY KEY (`IdProduct`)
 )
 COLLATE='utf8_general_ci'
@@ -37,16 +38,16 @@ AUTO_INCREMENT=0;
 
 insert into users (`Username`, `Email`, `Password`) values ('diana', 'diana@email.com', 12345);
 
-insert into products (`ProductName`, `Price`) values ('product1', 12);
-insert into products (`ProductName`, `Price`) values ('product2', 21);
-insert into products (`ProductName`, `Price`) values ('product3', 43);
-insert into products (`ProductName`, `Price`) values ('product4', 6);
-insert into products (`ProductName`, `Price`) values ('product5', 34);
-insert into products (`ProductName`, `Price`) values ('product6', 33);
-insert into products (`ProductName`, `Price`) values ('product7', 31);
-insert into products (`ProductName`, `Price`) values ('product8', 45);
-insert into products (`ProductName`, `Price`) values ('product9', 13);
-insert into products (`ProductName`, `Price`) values ('product10', 22);
+insert into products (`ProductName`, `Price`) values ('product1', 12, 'RON');
+insert into products (`ProductName`, `Price`) values ('product2', 21, 'RON');
+insert into products (`ProductName`, `Price`) values ('product3', 43, 'USD');
+insert into products (`ProductName`, `Price`) values ('product4', 6, 'USD');
+insert into products (`ProductName`, `Price`) values ('product5', 34, 'EUR');
+insert into products (`ProductName`, `Price`) values ('product6', 33, 'EUR');
+insert into products (`ProductName`, `Price`) values ('product7', 31, 'EUR');
+insert into products (`ProductName`, `Price`) values ('product8', 45, 'RON');
+insert into products (`ProductName`, `Price`) values ('product9', 13, 'RON');
+insert into products (`ProductName`, `Price`) values ('product10', 22, 'RON');
 
 insert into orders (`IdUser`, `IdProduct`) values (1, 2);
 insert into orders (`IdUser`, `IdProduct`) values (1, 1);

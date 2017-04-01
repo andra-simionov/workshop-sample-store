@@ -16,6 +16,16 @@ class Payment extends CI_Controller
         $this->session->sess_destroy();
         $this->session->set_userdata(['IdUser' => $idUser]);
 
+        $productInfo = $this->PaymentModel->getProductDetails($idProduct);
+
         $this->PaymentModel->saveOrder($idUser, $idProduct);
+
+        $this->sendSold($productInfo->Price, $productInfo->Currency);
+       }
+
+       function sendSold($price, $currency)
+       {
+           $client = new GuzzleHttp\Client(['base_uri' => 'https://foo.com/api/']);
+           $response = $client->request('GET', 'test');
        }
 }
