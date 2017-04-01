@@ -20,12 +20,10 @@ class Payment extends CI_Controller
 
         $email = 'diana@yahoo.com';
 
-        $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
-
         $productInfo = $this->PaymentModel->getProductDetails($idProduct);
-
         $this->PaymentModel->saveOrder($idUser, $idProduct);
 
+        $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
         $this->sendSold($apiCredentials, $productInfo->Price, $productInfo->Currency);
     }
 
