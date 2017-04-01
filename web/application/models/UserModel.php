@@ -47,6 +47,27 @@ class UserModel extends CI_Model
         return false;
     }
 
+
+    /**
+     * @param string $email
+     *
+     * @return bool
+     */
+    public function emailAlreadyExists($email)
+    {
+        $result = $this->db->select('*')
+            ->from('users')
+            ->where(['Email' => $email])
+            ->get()
+            ->result_array();
+
+        if (count($result) > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * @param int $idUser
      * @return stdClass

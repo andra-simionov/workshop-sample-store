@@ -22,7 +22,7 @@ class Payment extends CI_Controller
 
         try {
             $productInfo = $this->SampleStoreModel->getProductDetails($idProduct);
-            $this->PaymentModel->saveOrder((int)$idUser, (int)$idProduct);
+            $this->PaymentModel->saveOrder($idUser, $idProduct);
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
             $this->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency);
         } catch (\Exception $e) {
@@ -62,7 +62,7 @@ class Payment extends CI_Controller
                 [
                     'headers' => $headers,
                     'data' => $data,
-                    'url' => 'http://somesite.com/api/1.0'
+                    'url' => 'http://localhost/SoldController/sold/format/json'
                 ]
            );
 
