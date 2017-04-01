@@ -7,7 +7,7 @@ class SampleStoreModel extends CI_Model
      */
     public function getProducts()
     {
-        $result = $this->db->select(['ProductName', 'Price', 'IdProduct'])
+        $result = $this->db->select(['ProductName', 'Price', 'IdProduct', 'Currency'])
             ->from('products')
             ->get()
             ->result_array();
