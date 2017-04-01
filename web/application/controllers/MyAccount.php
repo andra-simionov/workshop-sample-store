@@ -14,16 +14,15 @@ class MyAccount extends CI_Controller
         $this->load->library('session');
         $this->load->library('form_validation');
 
-        $smartyci = new Smartyci();
         $userData = $this->MyAccountModel->getUserData($idUser);
         $userOrders = $this->MyAccountModel->getUserOrders($idUser);
 
-        $smartyci->assign("idUser", $idUser);
-        $smartyci->assign("email", $userData->Email);
-        $smartyci->assign("username", $userData->Username);
-        $smartyci->assign("orders", $userOrders);
+        $this->smartyci->assign("idUser", $idUser);
+        $this->smartyci->assign("email", $userData->Email);
+        $this->smartyci->assign("username", $userData->Username);
+        $this->smartyci->assign("orders", $userOrders);
 
-        $smartyci->display('MyAccountView.tpl');
+        $this->smartyci->display('MyAccountView.tpl');
 
 
     }

@@ -12,8 +12,7 @@ class Login extends CI_Controller
 
         $this->load->library('form_validation');
 
-        $smartyci = new Smartyci();
-        $smartyci->setCompileCheck(false);
+        $this->smartyci->setCompileCheck(false);
 
         $config =  [
             [
@@ -31,7 +30,7 @@ class Login extends CI_Controller
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == FALSE && !isset($this->session->all_userdata()['IdUser'])) {
-            $smartyci->display('LoginView.tpl');
+            $this->smartyci->display('LoginView.tpl');
         } else if ($this->form_validation->run() == TRUE && !isset($this->session->all_userdata()['IdUser'])) {
 
             $data = [
@@ -42,8 +41,8 @@ class Login extends CI_Controller
             $result = $this->LoginModel->isUserRegistered($data);
 
             if ($result != TRUE) {
-                $smartyci->assign('error', 'Invalid username or password');
-                $smartyci->display('LoginError.tpl');
+                $this->smartyci->assign('error', 'Invalid username or password');
+                $this->smartyci->display('LoginError.tpl');
             } else {
                 $userInfo = $this->MyAccountModel->getUserInfo($data['username']);
 

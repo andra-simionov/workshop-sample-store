@@ -8,10 +8,8 @@ class Logout extends CI_Controller
         $this->load->library('session');
         $this->load->library('Smartyci');
 
-        $smartyci = new Smartyci();
-
         $this->session->sess_destroy();
-        $smartyci->display('Homepage.tpl');
+        $this->smartyci->display('Homepage.tpl');
     }
 }
 

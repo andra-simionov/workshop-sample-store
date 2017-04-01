@@ -2,7 +2,7 @@
 
 class Authenticator extends CI_Controller
 {
-    function index()
+    public function index()
     {
         exit('No direct script access allowed');
     }
@@ -11,7 +11,7 @@ class Authenticator extends CI_Controller
      * @param string $email
      * @return stdClass
      */
-    function getApiCredentials($email)
+    public function getApiCredentials($email)
     {
         $credentials = $this->AuthenticatorModel->getApiCredentials($email);
         redirect('Payment/sendApiCredentials/' . $credentials->ClientId . '/' . $credentials->SecretKey);

@@ -10,8 +10,6 @@ class Homepage extends CI_Controller
         $this->load->library('Smartyci');
         $this->load->library('session');
 
-        $smartyci = new Smartyci();
-
-        $smartyci->display('Homepage.tpl');
+        $this->smartyci->display('Homepage.tpl');
     }
 }

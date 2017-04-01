@@ -2,12 +2,12 @@
 
 class SampleStore extends CI_Controller
 {
-    function index()
+    public function index()
     {
         exit('No direct script access allowed');
     }
 
-    function loggedIn($idUser)
+    public function loggedIn($idUser)
     {
         $this->load->helper(['form', 'url']);
         $this->load->library('session');
@@ -15,14 +15,12 @@ class SampleStore extends CI_Controller
 
         $this->session->set_userdata(['IdUser' => $idUser]);
 
-        $smartyci = new Smartyci();
-
         $allProducts = $this->SampleStoreModel->getProducts();
 
-        $smartyci->assign("products", $allProducts);
+        $this->smartyci->assign("products", $allProducts);
 
-        $smartyci->assign("idUser", $idUser);
-        $smartyci->display('SampleStore.tpl');
+        $this->smartyci->assign("idUser", $idUser);
+        $this->smartyci->display('SampleStore.tpl');
     }
 }
 
