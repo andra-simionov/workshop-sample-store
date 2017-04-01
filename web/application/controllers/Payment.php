@@ -56,13 +56,11 @@ class Payment extends CI_Controller
            ]
        ];
 
-      // var_dump($data); die();
-
         $this->load->library('HttpClient',
                 [
                     'headers' => $headers,
-                    'data' => $data,
-                    'url' => 'http://localhost/SoldController/sold/format/json'
+                    'data' => json_encode($data),
+                    'url' => 'http://192.168.24.20/SoldController/sold/format/json'
                 ]
            );
 
