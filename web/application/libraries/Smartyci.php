@@ -1,6 +1,6 @@
 <?php
 
-if ( ! defined('BASEPATH') )
+if (!defined('BASEPATH') )
     exit( 'No direct script access allowed' );
 
 require_once( 'application/third_party/smarty-3.1.30/libs/Smarty.class.php' );
