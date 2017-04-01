@@ -40,10 +40,12 @@ class RegisterForm extends CI_Controller
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == TRUE) {
+
             if ($this->UserModel->emailAlreadyExists($email)) {
                 $this->smartyci->assign("error", "Email already exists");
                 $this->smartyci->display('Register/RegisterErrorView.tpl');
             }
+
             $this->UserModel->registerUser($username, $password, $email);
         }
 

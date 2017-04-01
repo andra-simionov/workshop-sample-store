@@ -23,7 +23,5 @@ class MyAccount extends CI_Controller
         $this->smartyci->assign("orders", $userOrders);
 
         $this->smartyci->display('MyAccountView.tpl');
-
-
     }
 }
