@@ -11,6 +11,8 @@ class RegisterForm extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('session');
 
+        $this->smartyci->setCompileCheck(false);
+
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $email = $this->input->post('email');
@@ -41,6 +43,6 @@ class RegisterForm extends CI_Controller
             $this->RegisterModel->registerUser($username, $password, $email);
         }
 
-        redirect('Login');
+        $this->smartyci->display('SuccessfullyRegisteredView.tpl');
     }
 }

@@ -28,7 +28,7 @@
                 <p class="nav-text"></p>
                 <ul class="right chevron">
                     {capture assign=ProductsPage}SampleStore/loggedIn/{$idUser}{/capture}
-                    <li><a href="{site_url({$ProductsPage})}">Products</a></li>
+                    <li><a href="{site_url({'SampleStore'})}">Products</a></li>
                     <li><a href="{site_url('Logout')}"> Logout </a></li>
                 </ul>
             </div>

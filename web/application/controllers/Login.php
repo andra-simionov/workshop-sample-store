@@ -49,12 +49,10 @@ class Login extends CI_Controller
                 $userId = $userInfo->IdUser;
                 $this->session->set_userdata(['IdUser' => $userId]);
 
-                redirect('SampleStore/loggedIn/' . $userId);
+                redirect('SampleStore');
             }
         } else {
-            $userId = $this->session->all_userdata()['IdUser'];
-
-            redirect('SampleStore/loggedIn/' . $userId);
+            redirect('SampleStore');
          }
     }
 }

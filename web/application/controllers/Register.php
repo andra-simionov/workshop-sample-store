@@ -10,6 +10,8 @@ class Register extends CI_Controller
         $this->load->library('Smartyci');
         $this->load->library('session');
 
-        redirect('Login');
+        $this->smartyci->setCompileCheck(false);
+
+        $this->smartyci->display('RegisterView.tpl');
     }
 }

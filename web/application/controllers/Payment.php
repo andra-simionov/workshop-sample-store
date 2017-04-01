@@ -11,21 +11,18 @@ class Payment extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('session');
 
-//        $idUser = $this->input->post('idUser');
-//        $idProduct = $this->input->post('idProduct');
+        $idUser = $this->input->post('idUser');
+        $idProduct = $this->input->post('idProduct');
 
-        $idUser = $this->input->get('idUser');
-        $idProduct = $this->input->get('idProduct');
-
-        $this->session->sess_destroy();
-        $this->session->set_userdata(['IdUser' => $idUser]);
+//        $idUser = $this->input->get('idUser');
+//        $idProduct = $this->input->get('idProduct');
 
         $userInfo = $this->MyAccountModel->getUserData($idUser);
         $email = $userInfo->Email;
 
         try {
             $productInfo = $this->PaymentModel->getProductDetails($idProduct);
-            $this->PaymentModel->saveOrder($idUser, $idProduct);
+            $this->PaymentModel->saveOrder((int)$idUser, (int)$idProduct);
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
             $this->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency);
         } catch (\Exception $e) {
