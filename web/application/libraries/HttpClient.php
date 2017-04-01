@@ -5,8 +5,6 @@
  * Simple HTTP client using cURL to make http requests easier
  * Supports: POST, GET
  *
- * @author  Elson Tan (@elsodev)
- * @version 1.0
  */
 
 class HttpClient

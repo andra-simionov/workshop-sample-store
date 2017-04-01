@@ -27,12 +27,12 @@ class Payment extends CI_Controller
             $productInfo = $this->PaymentModel->getProductDetails($idProduct);
             $this->PaymentModel->saveOrder($idUser, $idProduct);
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
+            $this->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency);
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
 
-        $this->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency);
-    }
+     }
 
 
    function sendOrder($apiCredentials, $email, $price, $currency)
@@ -52,7 +52,7 @@ class Payment extends CI_Controller
            ]
        ];
 
-       var_dump($data); die();
+      // var_dump($data); die();
 
         $this->load->library('HttpClient',
                 [
@@ -62,10 +62,10 @@ class Payment extends CI_Controller
                 ]
            );
 
-       if($this->httpclient->post()){
+        if($this->httpclient->post()){
            var_dump($this->httpclient->getResults());
        } else {
-           echo $this->httpclient->getErrorMsg();
+           throw new \Exception($this->httpclient->getErrorMsg());
        }
    }
 
