@@ -34,7 +34,6 @@ class RegisterForm extends CI_Controller
                 'rules'   => 'trim|required|min_length[5]'
             ],
 
-
         ];
 
         $this->form_validation->set_rules($config);
