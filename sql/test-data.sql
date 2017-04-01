@@ -1,4 +1,4 @@
-insert into users (`Username`, `Email`, `Password`) values ('diana', 'diana@email.com', 12345);
+insert into users (Username, Email, Password) values ('diana', 'diana@email.com', 12345);
 insert into users (`Username`, `Email`, `Password`) values ('andra', 'andra@email.com', 12345);
 
 insert into products (`ProductName`, `Price`, `Currency`) values ('product1', 12, 'RON');
@@ -15,3 +15,6 @@ insert into products (`ProductName`, `Price`, `Currency`) values ('product10', 2
 insert into orders (`IdUser`, `IdProduct`) values (1, 2);
 insert into orders (`IdUser`, `IdProduct`) values (1, 1);
 insert into orders (`IdUser`, `IdProduct`) values (1, 3);
+
+INSERT INTO `user_credentials` (`ClientId`, `SecretKey`, `Email`, `AddDate`) VALUES ('Andra_ID19', 'Andra_TEST', 'andra@yahoo.com', NOW()),
+  ('Diana_ID10', 'Diana_TEST', 'diana@yahoo.com', NOW());

@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Psr7\Request;
 
 class Payment extends CI_Controller
 {
@@ -12,8 +11,11 @@ class Payment extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('session');
 
-        $idUser = $this->input->post('idUser');
-        $idProduct = $this->input->post('idProduct');
+//        $idUser = $this->input->post('idUser');
+//        $idProduct = $this->input->post('idProduct');
+
+        $idUser = $this->input->get('idUser');
+        $idProduct = $this->input->get('idProduct');
 
         $this->session->sess_destroy();
         $this->session->set_userdata(['IdUser' => $idUser]);
@@ -24,26 +26,36 @@ class Payment extends CI_Controller
         $this->PaymentModel->saveOrder($idUser, $idProduct);
 
         $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
-        $this->sendSold($apiCredentials, $productInfo->Price, $productInfo->Currency);
+        $this->sendOrder($apiCredentials, $productInfo->Price, $productInfo->Currency);
     }
 
 
-       function sendSold($apiCredentials, $price, $currency)
-       {
-           $data = [
-               'orderData' => [
-                   'amount' => $price,
-                   'currency' => $currency
-               ]
-           ];
+   function sendOrder($apiCredentials, $price, $currency)
+   {
+       $headers = [
+           'Authorization :' . $apiCredentials->ClientId . ';' . $apiCredentials->SecretKey,
+           'Content-Type: application/json',
+       ];
 
-           $body = json_encode($data);
-           $request = new Request('POST', 'http://dummyurl', $headers = [], $body);
-           $request = $request->withHeader('Authorization', 'secretKey ' . $apiCredentials->SecretKey);
+       $data = [
+           'orderData' => [
+               'amount' => $price,
+               'currencly' => $currency
+           ]
+       ];
 
-           $client = new GuzzleHttp\Client();
-           var_dump($request); die();
+        $this->load->library('HttpClient',
+                [
+                    'headers' => $headers,
+                    'data' => $data,
+                    'url' => 'http://somesite.com/api/1.0'
+                ]
+           );
 
-           $response = $client->send($request);
+       if($this->httpclient->post()){
+           var_dump($this->httpclient->getResults());
+       } else {
+           echo $this->httpclient->getErrorMsg();
        }
+   }
 }
