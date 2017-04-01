@@ -44,6 +44,6 @@ CREATE TABLE IF NOT EXISTS `user_credentials` (
 	`AddDate`DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
 	PRIMARY KEY (`IdUserCredentials`)
 )
-	COLLATE='utf8_general_ci'
-	ENGINE=InnoDB
-	AUTO_INCREMENT=0;
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=0;
