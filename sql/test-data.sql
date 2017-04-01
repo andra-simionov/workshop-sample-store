@@ -1,5 +1,5 @@
-insert into users (Username, Email, Password) values ('diana', 'diana@email.com', 12345);
-insert into users (`Username`, `Email`, `Password`) values ('andra', 'andra@email.com', 12345);
+insert into users (Username, Email, Password) values ('diana', 'diana@yahoo.com', 12345);
+insert into users (`Username`, `Email`, `Password`) values ('andra', 'andra@yahoo.com', 12345);
 
 insert into products (`ProductName`, `Price`, `Currency`) values ('product1', 12, 'RON');
 insert into products (`ProductName`, `Price`, `Currency`) values ('product2', 21, 'RON');

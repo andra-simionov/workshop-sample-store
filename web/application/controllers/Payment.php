@@ -20,12 +20,17 @@ class Payment extends CI_Controller
         $this->session->sess_destroy();
         $this->session->set_userdata(['IdUser' => $idUser]);
 
-        $email = 'diana@yahoo.com';
+        $userInfo = $this->MyAccountModel->getUserData($idUser);
+        $email = $userInfo->Email;
 
-        $productInfo = $this->PaymentModel->getProductDetails($idProduct);
-        $this->PaymentModel->saveOrder($idUser, $idProduct);
+        try {
+            $productInfo = $this->PaymentModel->getProductDetails($idProduct);
+            $this->PaymentModel->saveOrder($idUser, $idProduct);
+            $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
 
-        $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
         $this->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency);
     }
 
@@ -39,13 +44,15 @@ class Payment extends CI_Controller
 
        $data = [
            'id' => $this->generateUUID(),
-           'timestamp' => gmdate('Y-m-d h:i:s'),
+           'timestamp' => date('Y-m-d h:i:s'),
            'email' => $email,
            'orderData' => [
                'amount' => $price,
                'currency' => $currency
            ]
        ];
+
+       var_dump($data); die();
 
         $this->load->library('HttpClient',
                 [

@@ -10,6 +10,8 @@ class AuthenticatorModel extends CI_Model
     /**
      * @param string $email
      * @return stdClass
+     *
+     * @throws Exception
      */
     public function getApiCredentials($email)
     {
@@ -18,6 +20,10 @@ class AuthenticatorModel extends CI_Model
             ->where(['Email' => $email])
             ->get();
 
-        return $result->first_row();
+        if ($result->first_row() != NULL) {
+            return $result->first_row();
+        } else {
+            throw new \Exception("Invalid email. Can't provide api credentials for it");
+        }
     }
 }

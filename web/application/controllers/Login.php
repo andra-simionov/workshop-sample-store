@@ -54,9 +54,8 @@ class Login extends CI_Controller
             }
         } else {
             $userId = $this->session->all_userdata()['IdUser'];
-            redirect('SampleStore/loggedIn/' . $userId);
 
-            //$smartyci->display('Homepage.tpl');
+            redirect('SampleStore/loggedIn/' . $userId);
          }
     }
 }
