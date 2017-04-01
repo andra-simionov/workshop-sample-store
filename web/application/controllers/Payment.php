@@ -3,6 +3,8 @@
 
 class Payment extends CI_Controller
 {
+    const BANK_URL = "http://192.168.24.20/SoldController/sold/format/json";
+
     function index()
     {
         parent::__construct();
@@ -60,7 +62,7 @@ class Payment extends CI_Controller
                 [
                     'headers' => $headers,
                     'data' => json_encode($data),
-                    'url' => 'http://192.168.24.20/SoldController/sold/format/json'
+                    'url' => self::BANK_URL
                 ]
            );
 
