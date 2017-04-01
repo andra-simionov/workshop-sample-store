@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Psr7\Request;
+
 class Payment extends CI_Controller
 {
     function index()
@@ -16,16 +18,34 @@ class Payment extends CI_Controller
         $this->session->sess_destroy();
         $this->session->set_userdata(['IdUser' => $idUser]);
 
+        $email = 'diana@yahoo.com';
+
+        $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
+
         $productInfo = $this->PaymentModel->getProductDetails($idProduct);
 
         $this->PaymentModel->saveOrder($idUser, $idProduct);
 
-        $this->sendSold($productInfo->Price, $productInfo->Currency);
-       }
+        $this->sendSold($apiCredentials, $productInfo->Price, $productInfo->Currency);
+    }
 
-       function sendSold($price, $currency)
+
+       function sendSold($apiCredentials, $price, $currency)
        {
-           $client = new GuzzleHttp\Client(['base_uri' => 'https://foo.com/api/']);
-           $response = $client->request('GET', 'test');
+           $data = [
+               'orderData' => [
+                   'amount' => $price,
+                   'currency' => $currency
+               ]
+           ];
+
+           $body = json_encode($data);
+           $request = new Request('POST', 'http://dummyurl', $headers = [], $body);
+           $request = $request->withHeader('Authorization', 'secretKey ' . $apiCredentials->SecretKey);
+
+           $client = new GuzzleHttp\Client();
+           var_dump($request); die();
+
+           $response = $client->send($request);
        }
 }

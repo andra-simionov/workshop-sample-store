@@ -137,5 +137,6 @@ $autoload['model'] = [
         'RegisterModel',
         'SampleStoreModel',
         'PaymentModel',
+        'AuthenticatorModel',
         'MyAccountModel',
     ];
