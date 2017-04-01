@@ -36,7 +36,8 @@
         <div class="top-nav s-12 l-10">
             <p class="nav-text"></p>
             <ul class="right chevron">
-                <li><a href="{site_url('MyAccount')}">MyAccount</a></li>
+                {capture assign=MyAccountPage}MyAccount/getUserHistory/{$idUser}{/capture}
+                <li><a href="{site_url($MyAccountPage)}">MyAccount</a></li>
                 <li><a href="{site_url('Logout')}"> Logout </a></li>
             </ul>
         </div>

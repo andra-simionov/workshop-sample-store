@@ -10,8 +10,6 @@ class Register extends CI_Controller
         $this->load->library('Smartyci');
         $this->load->library('session');
 
-        $smartyci = new Smartyci();
-
-        redirect('SuccessfullyRegistered');
+        redirect('Login');
     }
 }

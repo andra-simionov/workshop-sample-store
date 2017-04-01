@@ -1,14 +1,11 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class SampleStore extends CI_Controller
 {
     function index()
     {
-        parent::__construct();
-
-        $this->load->helper(['form', 'url']);
-        $this->load->library('session');
-     }
+        exit('No direct script access allowed');
+    }
 
     function loggedIn($idUser)
     {
@@ -21,6 +18,7 @@ class SampleStore extends CI_Controller
         $smartyci = new Smartyci();
 
         $allProducts = $this->SampleStoreModel->getProducts();
+
         $smartyci->assign("products", $allProducts);
 
         $smartyci->assign("idUser", $idUser);
