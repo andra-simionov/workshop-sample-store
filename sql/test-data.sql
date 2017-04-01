@@ -1,3 +1,5 @@
+USE sample_store;
+
 insert into users (Username, Email, Password) values ('diana', 'diana@yahoo.com', 12345);
 insert into users (`Username`, `Email`, `Password`) values ('andra', 'andra@yahoo.com', 12345);
 
