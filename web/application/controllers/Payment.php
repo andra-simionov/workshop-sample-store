@@ -34,7 +34,14 @@ class Payment extends CI_Controller
 
      }
 
-
+    /**
+     * @param stdClass $apiCredentials
+     * @param string $email
+     * @param int $price
+     * @param string $currency
+     *
+     * @throws Exception
+     */
    function sendOrder($apiCredentials, $email, $price, $currency)
    {
        $headers = [
