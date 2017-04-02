@@ -17,7 +17,7 @@ class UserModel extends CI_Model
     {
         $userData = [
             'Username' => $username,
-            'Password' => $password,
+            'Password' => $this->hashPassword($password),
             'Email' => $email,
         ];
 
@@ -95,5 +95,31 @@ class UserModel extends CI_Model
 
         return $result->first_row();
     }
+
+    public function hashPassword($password)
+    {
+        $salt = $this->generateSalt();
+        return $salt.'.'.md5( $salt.$password);
+    }
+
+    public function checkPassword($password, $hashedPassword)
+    {
+        list($salt, $hash) = explode('.', $hashedPassword);
+        $hashedFormPassword = $salt . '.' . md5($salt . $password);
+        return ($hashedPassword == $hashedFormPassword);
+    }
+
+    private function generateSalt($length = 10)
+    {
+        $characterList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $i = 0;
+        $salt = "";
+        while ($i < $length) {
+            $salt .= $characterList{mt_rand(0, (strlen($characterList) - 1))};
+            $i++;
+        }
+        return $salt;
+    }
+
 
 }
