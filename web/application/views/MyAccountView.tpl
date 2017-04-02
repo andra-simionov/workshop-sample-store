@@ -73,6 +73,9 @@
                                 <th>
                                     Product price
                                 </th>
+                                <th>
+                                    Order status
+                                </th>
                             </tr>
                             {foreach  $orders as $index => $orderInfo}
                                 <tr>
@@ -87,6 +90,10 @@
                                     </td>
                                     <td>
                                         {$orderInfo['Price']}
+                                    </td>
+
+                                    <td>
+                                        {$orderInfo['OrderStatus']}
                                     </td>
                                 </tr>
                             {/foreach}

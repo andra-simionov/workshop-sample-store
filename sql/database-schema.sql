@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 	`Date` DATETIME NOT NULL,
 	`IdUser` INT(11) NOT NULL,
 	`IdProduct` INT(11) NOT NULL,
+	`OrderStatus` VARCHAR(30)  NOT NULL DEFAULT 'PENDING',
 	PRIMARY KEY (`IdOrder`)
 )
 COLLATE='utf8_general_ci'
