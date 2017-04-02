@@ -5,6 +5,9 @@ class Payment extends CI_Controller
 {
     const BANK_URL = "http://192.168.24.20/SoldController/sold/format/json";
 
+    const ORDER_STATUS_FAILED = "FAILED";
+    const ORDER_STATUS_PAID = "PAID";
+
     function index()
     {
         parent::__construct();
@@ -33,16 +36,32 @@ class Payment extends CI_Controller
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
             $response = $this->sendservice->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
-          //  $this->OrderModel->
+            $this->interpretApiResponse($response);
+
+            echo $response;
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
 
      }
 
-     private function generateOrderReference()
+     private function interpretApiResponse($response)
      {
-         return rand(10000, 99999);
+         $responseParameters = json_decode($response, true);
+
+         $orderReference = $responseParameters['orderData']['reference'];
+
+         if ($responseParameters['meta']['status'] == 'OK') {
+             $this->OrderModel->updateOrderStatus($orderReference, self::ORDER_STATUS_PAID);
+         } else {
+             $this->OrderModel->updateOrderStatus($orderReference, self::ORDER_STATUS_FAILED);
+         }
      }
+
+    private function generateOrderReference()
+    {
+        return rand(10000, 99999);
+    }
+
 
 }

@@ -1,4 +1,8 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 class SendService
 {
@@ -42,8 +46,7 @@ class SendService
         );
 
         if($CI->httpclient->post()){
-            $response = json_decode($CI->httpclient->getResults(), true);
-            return $response;
+            return $CI->httpclient->getResults();
         } else {
             throw new \Exception($CI->httpclient->getErrorMsg());
         }
