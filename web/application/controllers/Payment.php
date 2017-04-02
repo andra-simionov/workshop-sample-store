@@ -14,16 +14,16 @@ class Payment extends CI_Controller
         $this->load->library('session');
         $this->load->library('SendService');
 
-        $idUser = $this->input->post('idUser');
-        $idProduct = $this->input->post('idProduct');
+//        $idUser = $this->input->post('idUser');
+//        $idProduct = $this->input->post('idProduct');
 
-//        $idUser = $this->input->get('idUser');
-//        $idProduct = $this->input->get('idProduct');
-
-        $userInfo = $this->UserModel->getUserData($idUser);
-        $email = $userInfo->Email;
+        $idUser = $this->input->get('idUser');
+        $idProduct = $this->input->get('idProduct');
 
         try {
+
+            $userInfo = $this->UserModel->getUserData($idUser);
+            $email = $userInfo->Email;
 
             $productInfo = $this->SampleStoreModel->getProductDetails($idProduct);
 

@@ -21,7 +21,7 @@ class SendService
         ];
 
         $data = [
-            'id' => $this->generateUUID(),
+            'requestId' => $this->generateUUID(),
             'timestamp' => date('Y-m-d h:i:s'),
             'email' => $email,
             'orderData' => [

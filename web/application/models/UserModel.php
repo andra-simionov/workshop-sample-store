@@ -71,6 +71,8 @@ class UserModel extends CI_Model
     /**
      * @param int $idUser
      * @return stdClass
+     *
+     * @throws Exception
      */
     public function getUserData($idUser)
     {
@@ -79,12 +81,18 @@ class UserModel extends CI_Model
             ->where('users.IdUser', $idUser)
             ->get();
 
-        return $result->first_row();
+        if ($result->first_row() != NULL) {
+            return $result->first_row();
+        } else {
+            throw new \Exception("Invalid user!");
+        }
     }
 
     /**
      * @param string $username
-     * @return mixed
+     * @return stdClass
+     *
+     * @throws Exception
      */
     public function getUserInfoByUsername($username)
     {
@@ -93,13 +101,17 @@ class UserModel extends CI_Model
             ->where('users.Username', $username)
             ->get();
 
-        return $result->first_row();
+        if ($result->first_row() != NULL) {
+            return $result->first_row();
+        } else {
+            throw new \Exception("Invalid user!");
+        }
     }
 
     public function hashPassword($password)
     {
         $salt = $this->generateSalt();
-        return $salt.'.'.md5( $salt.$password);
+        return $salt . '.' . md5($salt . $password);
     }
 
     public function checkPassword($password, $hashedPassword)

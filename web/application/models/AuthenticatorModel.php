@@ -23,7 +23,7 @@ class AuthenticatorModel extends CI_Model
         if ($result->first_row() != NULL) {
             return $result->first_row();
         } else {
-            throw new \Exception("Invalid email. Can't provide api credentials for it");
+            throw new \Exception("Invalid email. Can't provide api credentials for it!");
         }
     }
 }
