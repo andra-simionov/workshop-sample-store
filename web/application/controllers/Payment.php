@@ -28,10 +28,12 @@ class Payment extends CI_Controller
             $productInfo = $this->SampleStoreModel->getProductDetails($idProduct);
 
             $orderReference = $this->generateOrderReference();
-            $this->PaymentModel->saveOrder($idUser, $idProduct, $orderReference);
+            $this->OrderModel->saveOrder($idUser, $idProduct, $orderReference);
 
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
-            $this->sendservice->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
+            $response = $this->sendservice->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
+
+          //  $this->OrderModel->
         } catch (\Exception $e) {
             echo $e->getMessage();
         }

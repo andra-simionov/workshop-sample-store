@@ -9,6 +9,8 @@ class SendService
      * @param string $currency
      * @param string $orderReference
      *
+     * @return array
+     *
      * @throws Exception
      */
     function sendOrder($apiCredentials, $email, $price, $currency, $orderReference)
@@ -39,9 +41,9 @@ class SendService
             ]
         );
 
-        // todo - add logic for upddating order status
         if($CI->httpclient->post()){
-            var_dump($CI->httpclient->getResults());
+            $response = json_decode($CI->httpclient->getResults(), true);
+            return $response;
         } else {
             throw new \Exception($CI->httpclient->getErrorMsg());
         }
