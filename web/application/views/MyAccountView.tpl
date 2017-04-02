@@ -68,6 +68,9 @@
                                     Date
                                 </th>
                                 <th>
+                                    Order reference
+                                </th>
+                                <th>
                                     Product name
                                 </th>
                                 <th>
@@ -84,6 +87,10 @@
                                     </td>
                                     <td>
                                         {$orderInfo['Date']}
+                                    </td>
+
+                                    <td>
+                                        {$orderInfo['OrderReference']}
                                     </td>
                                     <td>
                                         {$orderInfo['ProductName']}
