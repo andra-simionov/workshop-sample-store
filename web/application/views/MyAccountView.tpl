@@ -89,7 +89,8 @@
                                         {$orderInfo['ProductName']}
                                     </td>
                                     <td>
-                                        {$orderInfo['Price']}
+                                        {capture assign=orderData}{$orderInfo['Price']} {$orderInfo['Currency']}{/capture}
+                                        {$orderData}
                                     </td>
 
                                     <td>

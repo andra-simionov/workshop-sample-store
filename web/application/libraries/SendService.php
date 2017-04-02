@@ -7,10 +7,11 @@ class SendService
      * @param string $email
      * @param int $price
      * @param string $currency
+     * @param string $orderReference
      *
      * @throws Exception
      */
-    function sendOrder($apiCredentials, $email, $price, $currency)
+    function sendOrder($apiCredentials, $email, $price, $currency, $orderReference)
     {
         $CI = & get_instance();
 
@@ -24,6 +25,7 @@ class SendService
             'timestamp' => date('Y-m-d h:i:s'),
             'email' => $email,
             'orderData' => [
+                'reference' => $orderReference,
                 'amount' => $price,
                 'currency' => $currency
             ]
