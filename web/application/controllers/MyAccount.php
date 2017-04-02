@@ -1,4 +1,9 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
+
 
 class MyAccount extends CI_Controller
 {
