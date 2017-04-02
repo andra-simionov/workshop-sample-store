@@ -16,6 +16,7 @@ class PaymentModel extends CI_Model
         $data = [
             'IdUser' => $idUser,
             'IdProduct' => $idProduct,
+            'OrderReference' => rand(10000, 99999),
             'Date' => gmdate('Y-m-d H:i:s'),
         ];
 

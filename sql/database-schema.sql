@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 	`Date` DATETIME NOT NULL,
 	`IdUser` INT(11) NOT NULL,
 	`IdProduct` INT(11) NOT NULL,
+	`OrderReference` VARCHAR(10) NOT NULL,
 	`OrderStatus` VARCHAR(30)  NOT NULL DEFAULT 'PENDING',
 	PRIMARY KEY (`IdOrder`)
 )

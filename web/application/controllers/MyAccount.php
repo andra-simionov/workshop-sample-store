@@ -15,7 +15,7 @@ class MyAccount extends CI_Controller
         $this->load->library('form_validation');
 
         $userData = $this->UserModel->getUserData($idUser);
-        $userOrders = $this->MyAccountModel->getUserOrders($idUser);
+        $userOrders = $this->OrderModel->getUserOrders($idUser);
 
         $this->smartyci->assign("idUser", $idUser);
         $this->smartyci->assign("email", $userData->Email);

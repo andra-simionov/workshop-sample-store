@@ -1,6 +1,6 @@
 <?php
 
-class MyAccountModel extends CI_Model
+class OrderModel extends CI_Model
 {
     public function __construct()
     {
@@ -9,6 +9,7 @@ class MyAccountModel extends CI_Model
 
     /**
      * @param string $idUser
+     *
      * @return array
      */
     public function getUserOrders($idUser)
@@ -21,6 +22,20 @@ class MyAccountModel extends CI_Model
             ->result_array();
 
         return $result;
+    }
+
+    /**
+     * @param string $orderReference
+     * @param string $status
+     *
+     * @return bool
+     */
+    public function updateOrderStatus($orderReference, $status)
+    {
+        $this->db->where('OrderReference', $orderReference)
+            ->update('orders', ['OrderStatus' => $status]);
+
+        return $this->db->affected_rows() > 0;
     }
 
 }
