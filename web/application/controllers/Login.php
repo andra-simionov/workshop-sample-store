@@ -33,23 +33,22 @@ class Login extends CI_Controller
             $this->smartyci->display('Login/LoginView.tpl');
         } else if ($this->form_validation->run() == TRUE && !isset($this->session->all_userdata()['IdUser'])) {
 
-            $data = [
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password')
-            ];
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
 
-            $userData = $this->UserModel->getUserInfoByUsername($data['username']);
+            $userData = $this->UserModel->getUserInfoByUsername($username);
+
             if ($userData == NULL) {
                 $correctCredentials = FALSE;
             } else {
-                $correctCredentials = $this->UserModel->checkPassword($data["password"], $userData->Password);
+                $correctCredentials = $this->UserModel->checkPassword($password, $userData->Password);
             }
 
             if ($correctCredentials != TRUE) {
                 $this->smartyci->assign('error', 'Invalid username or password');
                 $this->smartyci->display('Login/LoginError.tpl');
             } else {
-                $userInfo = $this->UserModel->getUserInfoByUsername($data['username']);
+                $userInfo = $this->UserModel->getUserInfoByUsername($username);
 
                 $userId = $userInfo->IdUser;
                 $this->session->set_userdata(['IdUser' => $userId]);
