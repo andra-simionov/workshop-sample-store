@@ -60,7 +60,17 @@
 
                         <div class="margin-bottom">
                             <h4 class="margin-bottom-0">Available sold: {$soldInfo}</h4>
-                        </div><br>
+                        </div>
+                        <div class="margin-bottom">
+                            <h4 class="margin-bottom-0">Card number: {$cardData['CardNumber']}</h4>
+                        </div>
+                        <div class="margin-bottom">
+                            <h4 class="margin-bottom-0">Card expiration date: {$cardData['ExpirationDate']}</h4>
+                        </div>
+                        <div class="margin-bottom">
+                            <h4 class="margin-bottom-0">Cvv: {$cardData['Cvv']}</h4>
+                        </div>
+                        <br>
                         <!-- Order History -->
 
                         <h2 class="text-uppercase text-strong margin-bottom-30">Order History</h2>

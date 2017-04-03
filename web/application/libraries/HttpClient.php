@@ -166,6 +166,8 @@ class HttpClient
 
             $get_data = $this->queryData($this->data);
 
+//            var_dump($get_data);
+
             curl_setopt($this->ch, CURLOPT_URL, $this->url . '?' . $get_data);
 
             //set headers
