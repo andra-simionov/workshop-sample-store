@@ -3,7 +3,7 @@
 
 class Payment extends CI_Controller
 {
-    const BANK_URL = "http://192.168.24.20/SoldController/sold/format/json";
+    const BANK_URL = "http://192.168.24.20/SoldController/pay/format/json";
 
     const ORDER_STATUS_FAILED = "FAILED";
     const ORDER_STATUS_PAID = "PAID";
