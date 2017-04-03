@@ -33,7 +33,7 @@ class MyAccount extends CI_Controller
             $soldInfo = $e->getMessage();
         }
 
-        $this->smartyci->assign("sold", $soldInfo);
+        $this->smartyci->assign("soldInfo", $soldInfo);
         $this->smartyci->assign("idUser", $idUser);
         $this->smartyci->assign("email", $email);
         $this->smartyci->assign("username", $userData->Username);
