@@ -16,7 +16,7 @@ class ReceiveService
      * @param stdClass $apiCredentials
      * @param string $email
      *
-     * @return array
+     * @return string
      *
      * @throws Exception
      */
@@ -39,12 +39,28 @@ class ReceiveService
         );
 
         if($this->CI->httpclient->get()){
-            var_dump($this->CI->httpclient->getResults()); die();
-            return $this->CI->httpclient->getResults();
+            $result = $this->CI->httpclient->getResults();
+
+            $sold = $this->extractSoldFromBankResponse($result);
+            return $sold;
+
         } else {
             var_dump($this->CI->httpclient->getErrorMsg()); die();
             throw new \Exception($this->CI->httpclient->getErrorMsg());
         }
     }
+
+    /**
+     * @param string $response
+     * @return string
+     */
+    public function extractSoldFromBankResponse($response)
+    {
+        $responseParameters = json_decode($response, true);
+
+        $sold = $responseParameters['userData']['sold'];
+        return $sold;
+    }
+
 
 }

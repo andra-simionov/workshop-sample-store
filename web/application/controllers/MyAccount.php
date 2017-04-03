@@ -28,13 +28,13 @@ class MyAccount extends CI_Controller
         $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
 
         try {
-            $response = $this->receiveservice->getSold($apiCredentials, $email);
-            var_dump($response);
+            $sold = $this->receiveservice->getSold($apiCredentials, $email);
         }  catch (\Exception $e) {
             var_dump($e->getMessage()); die();
             echo $e->getMessage();
         }
 
+        $this->smartyci->assign("sold", $sold);
         $this->smartyci->assign("idUser", $idUser);
         $this->smartyci->assign("email", $email);
         $this->smartyci->assign("username", $userData->Username);

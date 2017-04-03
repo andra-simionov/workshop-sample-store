@@ -34,26 +34,13 @@ class Payment extends CI_Controller
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
             $response = $this->sendservice->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
-            $this->interpretApiResponse($response);
+            $this->sendservice->interpretApiResponse($response);
 
             echo $response;
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
 
-     }
-
-     private function interpretApiResponse($response)
-     {
-         $responseParameters = json_decode($response, true);
-
-         $orderReference = $responseParameters['orderData']['reference'];
-
-         if ($responseParameters['meta']['status'] == 'OK') {
-             $this->OrderModel->updateOrderStatus($orderReference, self::ORDER_STATUS_PAID);
-         } else {
-             $this->OrderModel->updateOrderStatus($orderReference, self::ORDER_STATUS_FAILED);
-         }
      }
 
     private function generateOrderReference()

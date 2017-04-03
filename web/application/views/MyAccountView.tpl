@@ -55,9 +55,14 @@
                             <h4 class="margin-bottom-0">Username: {$username}</h4>
                         </div>
                         <div class="margin-bottom">
-                            <h4 class="margin-bottom-0">E-mail: {$email}</h4>
+                            <h4 class="margin-bottom-0">Email: {$email}</h4>
+                        </div>
+
+                        <div class="margin-bottom">
+                            <h4 class="margin-bottom-0">Available sold: {$sold}</h4>
                         </div><br>
                         <!-- Order History -->
+
                         <h2 class="text-uppercase text-strong margin-bottom-30">Order History</h2>
                         <table class="section background-white">
                             <tr>
