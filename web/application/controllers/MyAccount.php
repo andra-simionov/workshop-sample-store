@@ -31,8 +31,9 @@ class MyAccount extends CI_Controller
 
         try {
             $response = $this->getservice->getSold($apiCredentials, $email);
-            echo $response;
+            var_dump($response); die();
         }  catch (\Exception $e) {
+            var_dump($e->getMessage()); die();
             echo $e->getMessage();
         }
 
