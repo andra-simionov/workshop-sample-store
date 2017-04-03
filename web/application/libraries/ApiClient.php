@@ -2,8 +2,8 @@
 
 class ApiClient
 {
-    const BANK_URL = "http://192.168.24.20/SoldController/";
-    const API_ENDPOINT_PAY = "pay/format/json";
+    const BANK_URL = "http://192.168.24.20/api/v1/";
+    const API_ENDPOINT_PAY = "pay";
     const API_ENDPOINT_GET_SOLD = "getSold";
 
     public function generateUUID()
