@@ -4,7 +4,6 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-
 class RegisterForm extends CI_Controller
 {
     function index()
@@ -51,8 +50,10 @@ class RegisterForm extends CI_Controller
             }
 
             $this->UserModel->registerUser($username, $password, $email);
+            $this->smartyci->display('Register/RegisterSuccessView.tpl');
+        } else {
+            $this->smartyci->display('Register/RegisterView.tpl');
         }
 
-        $this->smartyci->display('Register/RegisterSuccessView.tpl');
     }
 }

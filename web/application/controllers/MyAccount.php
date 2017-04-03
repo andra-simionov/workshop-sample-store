@@ -7,8 +7,6 @@ if (!defined('BASEPATH')) {
 
 class MyAccount extends CI_Controller
 {
-    const GET_SOLD_URL = "http://192.168.24.20/SoldController/getSold/format/json";
-
     function index()
     {
         exit('No direct script access allowed');
@@ -20,7 +18,7 @@ class MyAccount extends CI_Controller
         $this->load->library('Smartyci');
         $this->load->library('session');
         $this->load->library('form_validation');
-        $this->load->library('GetService');
+        $this->load->library('ReceiveService');
 
 
         $userData = $this->UserModel->getUserData($idUser);
@@ -30,8 +28,8 @@ class MyAccount extends CI_Controller
         $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
 
         try {
-            $response = $this->getservice->getSold($apiCredentials, $email);
-            var_dump($response); die();
+            $response = $this->receiveservice->getSold($apiCredentials, $email);
+            var_dump($response);
         }  catch (\Exception $e) {
             var_dump($e->getMessage()); die();
             echo $e->getMessage();

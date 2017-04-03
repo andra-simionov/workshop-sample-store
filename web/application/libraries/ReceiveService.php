@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class SendService
+class ReceiveService
 {
     function __construct()
     {
@@ -15,15 +15,12 @@ class SendService
     /**
      * @param stdClass $apiCredentials
      * @param string $email
-     * @param int $price
-     * @param string $currency
-     * @param string $orderReference
      *
      * @return array
      *
      * @throws Exception
      */
-    function sendOrder($apiCredentials, $email, $price, $currency, $orderReference)
+    function getSold($apiCredentials, $email)
     {
         $headers = $this->CI->apiclient->getHeaders($apiCredentials);
 
@@ -31,24 +28,21 @@ class SendService
             'requestId' => $this->CI->apiclient->generateUUID(),
             'timestamp' => date('Y-m-d h:i:s'),
             'email' => $email,
-            'orderData' => [
-                'reference' => $orderReference,
-                'amount' => $price,
-                'currency' => $currency
-            ]
         ];
 
         $this->CI->load->library('HttpClient',
             [
                 'headers' => $headers,
-                'data' => json_encode($data),
-                'url' => ApiClient::BANK_URL . ApiClient::API_ENDPOINT_PAY
+                'data' => http_build_query($data),
+                'url' => ApiClient::BANK_URL . ApiClient::API_ENDPOINT_GET_SOLD
             ]
         );
 
-        if ($this->CI->httpclient->post()){
+        if($this->CI->httpclient->get()){
+            var_dump($this->CI->httpclient->getResults()); die();
             return $this->CI->httpclient->getResults();
         } else {
+            var_dump($this->CI->httpclient->getErrorMsg()); die();
             throw new \Exception($this->CI->httpclient->getErrorMsg());
         }
     }
