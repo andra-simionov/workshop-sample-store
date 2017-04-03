@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="margin-bottom">
-                            <h4 class="margin-bottom-0">Available sold: {$sold}</h4>
+                            <h4 class="margin-bottom-0">Available sold: {$soldInfo}</h4>
                         </div><br>
                         <!-- Order History -->
 
