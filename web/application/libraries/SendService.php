@@ -54,16 +54,55 @@ class SendService
     }
 
     /**
+     * @param $apiCredentials
+     * @param $email
+     * @param $price
+     * @param $currency
+     * @param $orderReference
+     * @return mixed
+     * @throws Exception
+     */
+    function refundOrder($apiCredentials, $email, $price, $currency, $orderReference)
+    {
+        $headers = $this->CI->apiclient->getHeaders($apiCredentials);
+
+        $data = [
+            'requestId' => $this->CI->apiclient->generateUUID(),
+            'timestamp' => date('Y-m-d h:i:s'),
+            'email' => $email,
+            'orderData' => [
+                'reference' => $orderReference,
+                'amount' => $price,
+                'currency' => $currency
+            ]
+        ];
+
+        $this->CI->load->library('HttpClient',
+            [
+                'headers' => $headers,
+                'data' => json_encode($data),
+                'url' => ApiClient::BANK_URL . ApiClient::API_ENDPOINT_REFUND
+            ]
+        );
+
+        if ($this->CI->httpclient->post()){
+            return $this->CI->httpclient->getResults();
+        } else {
+            throw new \Exception($this->CI->httpclient->getErrorMsg());
+        }
+    }
+
+    /**
      * @param string $response
      */
-    public function interpretApiResponse($response)
+    public function interpretApiResponse($response, $orderStatus)
     {
         $responseParameters = json_decode($response, true);
 
         $orderReference = $responseParameters['orderData']['reference'];
 
         if ($responseParameters['meta']['status'] == 'OK') {
-            $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_PAID);
+            $this->CI->OrderModel->updateOrderStatus($orderReference, $orderStatus);
         } else {
             $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_FAILED);
         }

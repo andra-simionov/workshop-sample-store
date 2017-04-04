@@ -35,7 +35,7 @@ class Payment extends CI_Controller
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
             $response = $this->sendservice->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
-            $this->sendservice->interpretApiResponse($response);
+            $this->sendservice->interpretApiResponse($response, self::ORDER_STATUS_PAID);
 
             echo $response;
         } catch (\Exception $e) {
