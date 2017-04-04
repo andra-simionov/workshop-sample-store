@@ -20,12 +20,12 @@ class MyAccount extends CI_Controller
         $email = $userData->Email;
 
         try {
-            $soldInfo = $this->receiveservice->getSold($email, $userData->Token);
+            $balanceInfo = $this->receiveservice->getBalance($email, $userData->Token);
             $cardData = $this->receiveservice->getCardData($email, $userData->Token);
 
             $matchedApiCredentials = 1;
 
-            $this->smartyci->assign("soldInfo", $soldInfo);
+            $this->smartyci->assign("balanceInfo", $balanceInfo);
             $this->smartyci->assign("cardData", $cardData);
 
         } catch (\Exception $exception) {

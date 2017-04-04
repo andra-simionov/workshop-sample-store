@@ -21,7 +21,7 @@ class ReceiveService
      *
      * @throws Exception
      */
-    public function getSold($email, $token)
+    public function getBalance($email, $token)
     {
         $headers = $this->CI->apiclient->getHeaders();
 
@@ -43,12 +43,12 @@ class ReceiveService
 
             $response = $this->CI->httpclient->getResults();
 
-            $sold = $this->extractSoldFromBankResponse($response);
-            return $sold;
+            $balance = $this->extractBalanceFromBankResponse($response);
+            return $balance;
 
         } else {
-            $soldInfo = $this->CI->httpclient->getErrorMsg();
-            return $soldInfo;
+            $balanceInfo = $this->CI->httpclient->getErrorMsg();
+            return $balanceInfo;
         }
     }
 
@@ -94,12 +94,12 @@ class ReceiveService
      * @param string $response
      * @return string
      */
-    public function extractSoldFromBankResponse($response)
+    public function extractBalanceFromBankResponse($response)
     {
         $responseParameters = json_decode($response, true);
 
-        $sold = $responseParameters['userData']['sold'];
-        return $sold;
+        $balance = $responseParameters['userData']['balance'];
+        return $balance;
     }
 
 

@@ -65,7 +65,7 @@
                          {if $matchedApiCredentials eq 1}
 
                         <div class="margin-bottom">
-                            <h4 class="margin-bottom-0">Available balance: {$soldInfo}</h4>
+                            <h4 class="margin-bottom-0">Available balance: {$balanceInfo}</h4>
                         </div>
                         <div class="margin-bottom">
                             <h4 class="margin-bottom-0">Card number: {$cardData['CardNumber']}</h4>
