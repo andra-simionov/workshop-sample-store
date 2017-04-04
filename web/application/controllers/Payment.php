@@ -32,8 +32,7 @@ class Payment extends CI_Controller
             $orderReference = $this->generateOrderReference();
             $this->OrderModel->saveOrder($idUser, $idProduct, $orderReference);
 
-            $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
-            $response = $this->sendservice->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
+            $response = $this->sendservice->sendOrder($userInfo->token, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
             $this->sendservice->interpretPayApiResponse($response);
 

@@ -8,22 +8,20 @@ class AuthenticatorModel extends CI_Model
     }
 
     /**
-     * @param string $email
      * @return stdClass
      *
      * @throws Exception
      */
-    public function getApiCredentials($email)
+    public function getApiCredentials()
     {
         $result = $this->db->select('*')
-            ->from('user_credentials')
-            ->where(['Email' => $email])
+            ->from('store_credentials')
             ->get();
 
         if ($result->first_row() != NULL) {
             return $result->first_row();
         } else {
-            throw new \Exception("Invalid email. Can't provide api credentials for it!");
+            throw new \Exception("Can't provide api credentials!");
         }
     }
 }

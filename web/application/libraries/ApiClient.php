@@ -2,10 +2,16 @@
 
 class ApiClient
 {
+    function __construct()
+    {
+        $this->CI = &get_instance();
+    }
+
     const BANK_URL = "http://192.168.24.20/api/v1/";
+
     const API_ENDPOINT_PAY = "pay";
     const API_ENDPOINT_REFUND = "refund";
-    const API_ENDPOINT_GET_SOLD = "getSold";
+    const API_ENDPOINT_GET_BALANCE = "getBalance";
     const API_ENDPOINT_GET_CARD_DATA = "getCardData";
 
     public function generateUUID()
@@ -33,11 +39,12 @@ class ApiClient
     }
 
     /**
-     * @param stdClass $apiCredentials
      * @return array
      */
-    public function getHeaders($apiCredentials)
+    public function getHeaders()
     {
+        $apiCredentials = $this->CI->AuthenticatorModel->getApiCredentials();
+
         $headers = [
             'Authorization :' . $apiCredentials->ClientId . ',' . $apiCredentials->SecretKey,
             'Content-Type: application/json',

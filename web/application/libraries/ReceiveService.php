@@ -14,28 +14,29 @@ class ReceiveService
     }
 
     /**
-     * @param stdClass $apiCredentials
      * @param string $email
+     * @param string $token
      *
      * @return string
      *
      * @throws Exception
      */
-    function getSold($apiCredentials, $email)
+    public function getSold($email, $token)
     {
-        $headers = $this->CI->apiclient->getHeaders($apiCredentials);
+        $headers = $this->CI->apiclient->getHeaders();
 
         $data = [
             'requestId' => $this->CI->apiclient->generateUUID(),
             'timestamp' => date('Y-m-d h:i:s'),
             'email' => $email,
+            'token' => $token,
         ];
 
         $this->CI->httpclient->setOptions(
             [
                 'headers' => $headers,
                 'data' => http_build_query($data),
-                'url' => ApiClient::BANK_URL . ApiClient::API_ENDPOINT_GET_SOLD
+                'url' => ApiClient::BANK_URL . ApiClient::API_ENDPOINT_GET_BALANCE
             ]);
 
         if($this->CI->httpclient->get()){
@@ -52,21 +53,22 @@ class ReceiveService
     }
 
     /**
-     * @param stdClass $apiCredentials
      * @param string $email
+     * @param string $token
      *
      * @return string
      *
      * @throws Exception
      */
-    function getCardData($apiCredentials, $email)
+    public function getCardData($email, $token)
     {
-        $headers = $this->CI->apiclient->getHeaders($apiCredentials);
+        $headers = $this->CI->apiclient->getHeaders();
 
         $data = [
             'requestId' => $this->CI->apiclient->generateUUID(),
             'timestamp' => date('Y-m-d h:i:s'),
             'email' => $email,
+            'token' => $token,
         ];
 
         $this->CI->httpclient->setOptions(

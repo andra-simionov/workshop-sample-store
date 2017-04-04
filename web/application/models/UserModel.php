@@ -48,6 +48,19 @@ class UserModel extends CI_Model
         return false;
     }
 
+    /**
+     * @param int $idUser
+     * @param string $token
+     *
+     * @return bool
+     */
+    public function updateToken($idUser, $token)
+    {
+        $this->db->where('IdUser', $idUser)
+            ->update('users', ['Token' => $token]);
+
+        return $this->db->affected_rows() > 0;
+    }
 
     /**
      * @param string $email
@@ -109,12 +122,21 @@ class UserModel extends CI_Model
         }
     }
 
+    /**
+     * @param string $password
+     * @return string
+     */
     public function hashPassword($password)
     {
         $salt = $this->generateSalt();
         return $salt . '.' . md5($salt . $password);
     }
 
+    /**
+     * @param string $password
+     * @param string $hashedPassword
+     * @return bool
+     */
     public function checkPassword($password, $hashedPassword)
     {
         list($salt, $hash) = explode('.', $hashedPassword);
@@ -122,6 +144,10 @@ class UserModel extends CI_Model
         return ($hashedPassword == $hashedFormPassword);
     }
 
+    /**
+     * @param int $length
+     * @return string
+     */
     private function generateSalt($length = 10)
     {
         $characterList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

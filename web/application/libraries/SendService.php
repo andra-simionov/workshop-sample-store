@@ -13,7 +13,7 @@ class SendService
     }
 
     /**
-     * @param stdClass $apiCredentials
+     * @param string $token
      * @param string $email
      * @param int $price
      * @param string $currency
@@ -23,14 +23,15 @@ class SendService
      *
      * @throws Exception
      */
-    function sendOrder($apiCredentials, $email, $price, $currency, $orderReference)
+    function sendOrder($token, $email, $price, $currency, $orderReference)
     {
-        $headers = $this->CI->apiclient->getHeaders($apiCredentials);
+        $headers = $this->CI->apiclient->getHeaders();
 
         $data = [
             'requestId' => $this->CI->apiclient->generateUUID(),
             'timestamp' => date('Y-m-d h:i:s'),
             'email' => $email,
+            'token' => $token,
             'orderData' => [
                 'reference' => $orderReference,
                 'amount' => $price,
@@ -54,22 +55,25 @@ class SendService
     }
 
     /**
-     * @param $apiCredentials
-     * @param $email
-     * @param $price
-     * @param $currency
-     * @param $orderReference
-     * @return mixed
+     * @param string $token
+     * @param string $email
+     * @param int $price
+     * @param string $currency
+     * @param string $orderReference
+     *
+     * @return array
+     *
      * @throws Exception
      */
-    function refundOrder($apiCredentials, $email, $price, $currency, $orderReference)
+    function refundOrder($token, $email, $price, $currency, $orderReference)
     {
-        $headers = $this->CI->apiclient->getHeaders($apiCredentials);
+        $headers = $this->CI->apiclient->getHeaders();
 
         $data = [
             'requestId' => $this->CI->apiclient->generateUUID(),
             'timestamp' => date('Y-m-d h:i:s'),
             'email' => $email,
+            'token' => $token,
             'orderData' => [
                 'reference' => $orderReference,
                 'amount' => $price,
@@ -92,6 +96,9 @@ class SendService
         }
     }
 
+    /**
+     * @param string $response
+     */
     public function interpretPayApiResponse($response)
     {
         $responseParameters = $this->parseApiResponse($response);
@@ -106,7 +113,7 @@ class SendService
     }
 
     /**
-     * @param $response
+     * @param string $response
      */
     public function interpretRefundApiResponse($response)
     {
