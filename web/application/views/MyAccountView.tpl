@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prospera Free - New Amazing HTML5 Template</title>
+    <title>Sample Store</title>
     <link rel="stylesheet" href="../../shopAssests/css/components.css">
     <link rel="stylesheet" href="../../shopAssests/css/icons.css">
     <link rel="stylesheet" href="../../shopAssests/css/responsee.css">

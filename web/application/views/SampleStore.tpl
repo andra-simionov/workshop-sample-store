@@ -18,8 +18,6 @@
 
     <!-- Notification style -->
     <link href="../../shopAssests/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Animation library for notifications   -->
     <link href="../../shopAssests/css/animate.min.css" rel="stylesheet"/>
 
     <!--     Fonts and icons     -->
