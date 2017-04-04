@@ -49,7 +49,7 @@
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
                         <div class="form-top-left">
-                            <p>Enter your username and password to log on:</p>
+                            <p>Enter your username and password</p>
                         </div>
                         <div class="form-top-right">
                             <i class="fa fa-lock"></i>
@@ -66,9 +66,9 @@
                             <label class="sr-only" for="form-password">Password</label>
                             <input type="password" name="password" id="password" placeholder="Password..." class="form-password form-control" >
                         </div>
-
-                        {validation_errors()}
-
+                        <div class="validation-error">
+                            {validation_errors()}
+                        </div>
                         <div class="submit">
                             <input type="submit" value="Submit" />
                         </div>

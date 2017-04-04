@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
-    color: #888;
+    /*color: #888;*/
     line-height: 30px;
     text-align: center;
 }
@@ -166,6 +166,10 @@ img { max-width: 100%; }
 
 .social-login-buttons {
 	margin-top: 25px;
+}
+
+.validation-error {
+	color:red;
 }
 
 

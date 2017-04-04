@@ -35,7 +35,7 @@ class RegisterForm extends CI_Controller
             [
                 'field'   => 'email',
                 'label'   => 'Email',
-                'rules'   => 'trim|required|min_length[5]'
+                'rules'   => 'trim|required|valid_email'
             ],
 
         ];
