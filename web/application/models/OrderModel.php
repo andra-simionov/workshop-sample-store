@@ -70,7 +70,7 @@ class OrderModel extends CI_Model
             ->where('orders.OrderReference', $orderReference)
             ->join('products', 'orders.IdProduct = products.IdProduct')
             ->get()
-            ->row_array();
+            ->first_row();
 
         return $result;
     }
