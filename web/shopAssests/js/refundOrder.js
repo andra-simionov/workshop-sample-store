@@ -1,15 +1,15 @@
-function refund(orderReference, email) {
-    $.post("Refund", {orderReference: orderReference, email: email}).done(function () {
+function refund(baseUrl, orderReference, idUser) {
+    $.post(baseUrl + "Refund", {orderReference: orderReference, idUser: idUser}).done(function () {
         showNotification('top', 'center');
     })
 }
 
 function showNotification(from, align){
-    color = Math.floor((Math.random() * 8) + 1);
+    color = Math.floor((Math.random() * 6) + 1);
 
     $.notify({
         icon: "ti-gift",
-        message: "<center>You just refunded the product!</center>"
+        message: "<center>You have refunded the order!</center>"
 
     },{
         type: 'info',
