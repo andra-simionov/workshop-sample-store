@@ -19,8 +19,8 @@ class MyAccount extends CI_Controller
         $userOrders = $this->OrderModel->getUserOrders($idUser);
         $email = $userData->Email;
 
-        $soldInfo = $this->receiveservice->getSold($email);
-        $cardData = $this->receiveservice->getCardData($email);
+        $soldInfo = $this->receiveservice->getSold($email, $userData->Token);
+        $cardData = $this->receiveservice->getCardData($email, $userData->Token);
 
         $this->smartyci->assign("soldInfo", $soldInfo);
         $this->smartyci->assign("cardData", $cardData);

@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 	PRIMARY KEY (`IdOrder`)
 )
 COLLATE='utf8_general_ci'
-ENGINE=InnoDB
+ENGINE=InnoDBv
 AUTO_INCREMENT=0;
 
 CREATE TABLE IF NOT EXISTS `store_credentials` (
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `store_credentials` (
 	`ClientId` VARCHAR(50) NOT NULL DEFAULT '',
 	`SecretKey` VARCHAR(50) NOT NULL DEFAULT '',
 	`AddDate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-	PRIMARY KEY (`IdUserCredentials`)
+	PRIMARY KEY (`IdStoreCredentials`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
