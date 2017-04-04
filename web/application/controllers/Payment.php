@@ -4,7 +4,7 @@
 class Payment extends CI_Controller
 {
     const ORDER_STATUS_PAID = "PAID";
-    const ORDER_STATUS_FAILED = "PAID";
+    const ORDER_STATUS_FAILED = "FAILED";
 
     function index()
     {
@@ -32,7 +32,7 @@ class Payment extends CI_Controller
             $orderReference = $this->generateOrderReference();
             $this->OrderModel->saveOrder($idUser, $idProduct, $orderReference);
 
-            $response = $this->sendservice->sendOrder($userInfo->token, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
+            $response = $this->sendservice->payOrder($userInfo->Token, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
             $this->sendservice->interpretPayApiResponse($response);
 

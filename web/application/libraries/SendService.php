@@ -23,7 +23,7 @@ class SendService
      *
      * @throws Exception
      */
-    function sendOrder($token, $email, $price, $currency, $orderReference)
+    function payOrder($token, $email, $price, $currency, $orderReference)
     {
         $headers = $this->CI->apiclient->getHeaders();
 
