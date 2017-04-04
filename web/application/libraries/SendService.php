@@ -92,21 +92,40 @@ class SendService
         }
     }
 
-    /**
-     * @param string $response
-     */
-    public function interpretApiResponse($response, $orderStatus)
+    public function interpretPayApiResponse($response)
     {
-        $responseParameters = json_decode($response, true);
+        $responseParameters = $this->parseApiResponse($response);
 
         $orderReference = $responseParameters['orderData']['reference'];
 
         if ($responseParameters['meta']['status'] == 'OK') {
-            $this->CI->OrderModel->updateOrderStatus($orderReference, $orderStatus);
+            $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_PAID);
         } else {
             $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_FAILED);
         }
     }
 
+    /**
+     * @param $response
+     */
+    public function interpretRefundApiResponse($response)
+    {
+        $responseParameters = $this->parseApiResponse($response);
+        $orderReference = $responseParameters['orderData']['reference'];
 
+        if ($responseParameters['meta']['status'] == 'OK') {
+            $this->CI->OrderModel->updateOrderStatus($orderReference, Refund::ORDER_STATUS_REFUNDED);
+        } else {
+            $this->CI->OrderModel->updateOrderStatus($orderReference, Refund::ORDER_STATUS_REJECTED);
+        }
+    }
+
+    /**
+     * @param $response
+     * @return mixed
+     */
+    private function parseApiResponse($response)
+    {
+        return $responseParameters = json_decode($response, true);
+    }
 }

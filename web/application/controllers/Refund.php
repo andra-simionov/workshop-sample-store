@@ -4,6 +4,7 @@
 class Refund extends CI_Controller
 {
     const ORDER_STATUS_REFUNDED = "REFUNDED";
+    const ORDER_STATUS_REJECTED = "REJECTED";
 
     function index()
     {
@@ -15,15 +16,18 @@ class Refund extends CI_Controller
         $this->load->library('SendService');
 
         $orderReference = $this->input->post('orderReference');
-        $email = $this->input->post('email');
+        $idUser = $this->input->post('idUser');
 
         try {
+            $userInfo = $this->UserModel->getUserData($idUser);
+            $email = $userInfo->Email;
+
             $orderInfo = $this->OrderModel->getOrderDataByOrderReference($orderReference);
 
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
-            $response = $this->sendservice->sendOrder($apiCredentials, $email, $orderInfo['products.Price'], $orderInfo['products.Currency'], $orderReference);
+            $response = $this->sendservice->refundOrder($apiCredentials, $email, $orderInfo->Price, $orderInfo->Currency, $orderReference);
 
-            $this->sendservice->interpretApiResponse($response, self::ORDER_STATUS_REFUNDED);
+            $this->sendservice->interpretRefundApiResponse($response);
 
             echo $response;
         } catch (\Exception $e) {

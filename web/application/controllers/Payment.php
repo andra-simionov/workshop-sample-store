@@ -3,8 +3,8 @@
 
 class Payment extends CI_Controller
 {
-    const ORDER_STATUS_FAILED = "FAILED";
     const ORDER_STATUS_PAID = "PAID";
+    const ORDER_STATUS_FAILED = "PAID";
 
     function index()
     {
@@ -35,7 +35,7 @@ class Payment extends CI_Controller
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
             $response = $this->sendservice->sendOrder($apiCredentials, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
-            $this->sendservice->interpretApiResponse($response, self::ORDER_STATUS_PAID);
+            $this->sendservice->interpretPayApiResponse($response);
 
             echo $response;
         } catch (\Exception $e) {
