@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="../../shopAssests/owl-carousel/owl.theme.css">
     <!-- CUSTOM STYLE -->
     <link rel="stylesheet" href="../../shopAssests/css/template-style.css">
+    <!-- Notification style -->
+    <link href="../../shopAssests/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../shopAssests/css/animate.min.css" rel="stylesheet"/>
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="../../shopAssests/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../../shopAssests/js/jquery-ui.min.js"></script>
@@ -122,7 +126,7 @@
                                         {$orderInfo['OrderStatus']}
                                     </td>
                                     <td>
-                                        <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{$orderInfo['OrderReference']}','{$email}')">
+                                        <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{site_url()}', '{$orderInfo['OrderReference']}', {$idUser})">
                                             REFUND
                                         </button>
                                     </td>
@@ -141,6 +145,7 @@
 <script type="text/javascript" src="../../shopAssests/js/responsee.js"></script>
 <script type="text/javascript" src="../../shopAssests/owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript" src="../../shopAssests/js/template-scripts.js"></script>
+<script src="../../shopAssests/js/bootstrap-notify.js"></script>
 <script src="../../shopAssests/js/refundOrder.js"></script>
 
 </body>
