@@ -4,6 +4,7 @@ class ApiClient
 {
     const BANK_URL = "http://192.168.24.20/api/v1/";
     const API_ENDPOINT_PAY = "pay";
+    const API_ENDPOINT_REFUND = "refund";
     const API_ENDPOINT_GET_SOLD = "getSold";
     const API_ENDPOINT_GET_CARD_DATA = "getCardData";
 

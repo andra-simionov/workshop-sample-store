@@ -59,4 +59,20 @@ class OrderModel extends CI_Model
         return $this->db->affected_rows() > 0;
     }
 
+    /**
+     * @param $orderReference
+     * @return mixed
+     */
+    public function getOrderDataByOrderReference($orderReference)
+    {
+        $result = $this->db->select('products.Price, products.Currency')
+            ->from('orders')
+            ->where('orders.OrderReference', $orderReference)
+            ->join('products', 'orders.IdProduct = products.IdProduct')
+            ->get()
+            ->row_array();
+
+        return $result;
+    }
+
 }
