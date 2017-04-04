@@ -61,7 +61,9 @@
                         <div class="margin-bottom">
                             <h4 class="margin-bottom-0">Email: {$email}</h4>
                         </div>
+
                          {if $matchedApiCredentials eq 1}
+
                         <div class="margin-bottom">
                             <h4 class="margin-bottom-0">Available sold: {$soldInfo}</h4>
                         </div>
@@ -75,9 +77,14 @@
                             <h4 class="margin-bottom-0">Cvv: {$cardData['Cvv']}</h4>
                         </div>
                         <br>
+
                         {else}
-                        <br>
-                        {/if}
+
+                         <div class="margin-bottom">
+                             <h4 class="margin-bottom-0">{$errorMessage}</h4>
+                         </div>
+
+                         {/if}
 
                         <!-- Token Form -->
 
