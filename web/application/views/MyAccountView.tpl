@@ -94,6 +94,9 @@
                                 <th>
                                     Order status
                                 </th>
+                                <th>
+                                    Operation
+                                </th>
                             </tr>
                             {foreach  $orders as $index => $orderInfo}
                                 <tr>
@@ -118,6 +121,11 @@
                                     <td>
                                         {$orderInfo['OrderStatus']}
                                     </td>
+                                    <td>
+                                        <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{$orderInfo['OrderReference']}','{$email}')">
+                                            REFUND
+                                        </button>
+                                    </td>
                                 </tr>
                             {/foreach}
                         </table>
@@ -133,6 +141,7 @@
 <script type="text/javascript" src="../../shopAssests/js/responsee.js"></script>
 <script type="text/javascript" src="../../shopAssests/owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript" src="../../shopAssests/js/template-scripts.js"></script>
+<script src="../../shopAssests/js/refundOrder.js"></script>
 
 </body>
 </html>
