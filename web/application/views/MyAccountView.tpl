@@ -126,7 +126,7 @@
                                         {$orderInfo['OrderStatus']}
                                     </td>
                                     <td>
-                                        <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{site_url()}', '{$orderInfo['OrderReference']}', {$idUser})">
+                                        <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{$orderInfo['OrderReference']}', {$idUser})">
                                             REFUND
                                         </button>
                                     </td>
