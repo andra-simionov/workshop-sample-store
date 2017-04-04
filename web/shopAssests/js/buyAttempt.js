@@ -10,7 +10,7 @@ function showNotification(from, align){
 
     $.notify({
         icon: "ti-gift",
-        message: "<center>You just bought the product!</center>"
+        message: "<center>You just ordered the product!</center>"
 
     },{
         type: 'info',

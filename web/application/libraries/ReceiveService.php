@@ -10,7 +10,6 @@ class ReceiveService
     {
         $this->CI = &get_instance();
         $this->CI->load->library('ApiClient');
-
         $this->CI->load->library('HttpClient');
     }
 
@@ -40,6 +39,7 @@ class ReceiveService
             ]);
 
         if($this->CI->httpclient->get()){
+
             $response = $this->CI->httpclient->getResults();
 
             $sold = $this->extractSoldFromBankResponse($response);
@@ -86,7 +86,6 @@ class ReceiveService
             return $this->CI->httpclient->getErrorMsg();
         }
     }
-
 
 
     /**
