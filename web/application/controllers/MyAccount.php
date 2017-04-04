@@ -23,20 +23,20 @@ class MyAccount extends CI_Controller
             $balanceInfo = $this->receiveservice->getBalance($email, $userData->Token);
             $cardData = $this->receiveservice->getCardData($email, $userData->Token);
 
-            $matchedApiCredentials = 1;
+            $isResponseTypeError = 1;
 
             $this->smartyci->assign("balanceInfo", $balanceInfo);
             $this->smartyci->assign("cardData", $cardData);
 
         } catch (\Exception $exception) {
 
-            $matchedApiCredentials = 0;
+            $isResponseTypeError = 0;
 
-            $message = $exception->getMessage();
-            $this->smartyci->assign("errorMessage", $message);
+            $errorMessage = $exception->getMessage();
+            $this->smartyci->assign("errorMessage", $errorMessage);
         }
 
-        $this->smartyci->assign("matchedApiCredentials", $matchedApiCredentials);
+        $this->smartyci->assign("isResponseTypeError", $isResponseTypeError);
         $this->smartyci->assign("idUser", $idUser);
         $this->smartyci->assign("email", $email);
         $this->smartyci->assign("token", $userData->Token);

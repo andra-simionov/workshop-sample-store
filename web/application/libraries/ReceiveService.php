@@ -92,12 +92,19 @@ class ReceiveService
     /**
      * @param string $response
      * @return string
+     *
+     * @throws Exception
      */
     public function extractBalanceFromBankResponse($response)
     {
         $responseParameters = json_decode($response, true);
 
-        $balance = $responseParameters['userData']['balance'];
+        if ($responseParameters['meta']['status'] == 'OK') {
+            $balance = $responseParameters['userData']['balance'];
+        } else {
+            throw new \Exception($responseParameters['meta']['message']);
+        }
+
         return $balance;
     }
 
@@ -105,12 +112,20 @@ class ReceiveService
     /**
      * @param string $response
      * @return array
+     *
+     * @throws Exception
      */
     public function extractCardDataFromBankResponse($response)
     {
         $responseParameters = json_decode($response, true);
 
-        return $responseParameters['cardData'];
+        if ($responseParameters['meta']['status'] == 'OK') {
+            $cardData = $responseParameters['cardData'];
+        } else {
+            throw new \Exception($responseParameters['meta']['message']);
+        }
+
+        return $cardData;
     }
 
 
