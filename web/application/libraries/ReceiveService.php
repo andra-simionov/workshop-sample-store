@@ -47,8 +47,7 @@ class ReceiveService
             return $balance;
 
         } else {
-            $balanceInfo = $this->CI->httpclient->getErrorMsg();
-            return $balanceInfo;
+            throw new \Exception($this->CI->httpclient->getErrorMsg());
         }
     }
 
@@ -85,7 +84,7 @@ class ReceiveService
             return $cardData;
 
         } else {
-            return $this->CI->httpclient->getErrorMsg();
+            throw new \Exception($this->CI->httpclient->getErrorMsg());
         }
     }
 
