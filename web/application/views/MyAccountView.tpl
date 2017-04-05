@@ -95,8 +95,8 @@
                             <form class="customform">
                                 <div class="line">
                                     <div class="margin">
-                                        <div class="s-12 m-12 l-6">
-                                            <input name="token" id="token" value="{$token}" class="required-input email border-radius" placeholder="{$token}" type="text" />
+                                        <div class="s-12 m-12 l-6"> Current token:
+                                            <input name="token" id="token" value="{$token}" class="required email border-radius" placeholder="{$token}" type="text" />
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                         {$orderInfo['OrderStatus']}
                                     </td>
                                     <td>
-                                        <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{$orderInfo['OrderReference']}', {$idUser})">
+                                        <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{site_url()}', '{$orderInfo['OrderReference']}', {$idUser})">
                                             REFUND
                                         </button>
                                     </td>

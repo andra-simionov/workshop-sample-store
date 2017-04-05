@@ -1,5 +1,5 @@
-function refund(orderReference, idUser) {
-    $.post("Refund", {orderReference: orderReference, idUser: idUser}).done(function () {
+function refund(baseUrl, orderReference, idUser) {
+    $.post(baseUrl + "Refund", {orderReference: orderReference, idUser: idUser}).done(function () {
         showNotification('top', 'center');
     })
 }
