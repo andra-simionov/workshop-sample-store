@@ -62,7 +62,7 @@
                             <h4 class="margin-bottom-0">Email: {$email}</h4>
                         </div>
 
-                         {if $isResponseTypeError eq 1}
+                         {if $isResponseTypeError eq 0}
 
                         <div class="margin-bottom">
                             <h4 class="margin-bottom-0">Available balance: {$balanceInfo}</h4>
