@@ -96,7 +96,7 @@
                                 <div class="line">
                                     <div class="margin">
                                         <div class="s-12 m-12 l-6">
-                                            <input name="token" id="token" value="{$token}" class="required email border-radius" placeholder="{$token}" type="text" />
+                                            <input name="token" id="token" value="{$token}" class="required-input email border-radius" placeholder="{$token}" type="text" />
                                         </div>
                                     </div>
                                 </div>
