@@ -106,9 +106,9 @@ class SendService
         $orderReference = $responseParameters['orderData']['reference'];
 
         if ($responseParameters['meta']['status'] == 'Ok') {
-            $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_PAID);
+            $this->CI->OrderModel->updateOrderStatus($orderReference, Order::ORDER_STATUS_PAID);
         } else {
-            $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_FAILED);
+            $this->CI->OrderModel->updateOrderStatus($orderReference, Order::ORDER_STATUS_FAILED);
         }
     }
 

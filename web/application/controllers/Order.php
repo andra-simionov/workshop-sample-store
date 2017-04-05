@@ -1,7 +1,7 @@
 <?php
 
 
-class Payment extends CI_Controller
+class Order extends CI_Controller
 {
     const ORDER_STATUS_PAID = "PAID";
     const ORDER_STATUS_FAILED = "FAILED";

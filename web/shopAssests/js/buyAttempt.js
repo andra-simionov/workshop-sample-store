@@ -1,6 +1,6 @@
 
 function buy(idProduct, idUser) {
-    $.post("Payment", {idProduct: idProduct, idUser: idUser}).done(function () {
+    $.post("Order", {idProduct: idProduct, idUser: idUser}).done(function () {
         showNotification('top', 'center');
     })
 }
