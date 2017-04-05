@@ -1,6 +1,7 @@
 function refund(baseUrl, orderReference, idUser) {
     $.post(baseUrl + "Refund", {orderReference: orderReference, idUser: idUser}).done(function () {
         showNotification('top', 'center');
+        window.location.reload();
     })
 }
 
