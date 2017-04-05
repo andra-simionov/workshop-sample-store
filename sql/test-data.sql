@@ -1,7 +1,7 @@
 USE sample_store;
 
 insert into users (Username, Email, Password) values ('diana', 'diana@yahoo.com', 'FpzDtOh4YG.ea52fc619ec7905b56bfc9d978a3cf37');
-insert into users (`Username`, `Email`, `Password`) values ('andra', 'andra@yahoo.com', 'FpzDtOh4YG.ea52fc619ec7905b56bfc9d978a3cf37');
+insert into users (`Username`, `Email`, `Password`, `Token`) values ('andra', 'andra@yahoo.com', 'FpzDtOh4YG.ea52fc619ec7905b56bfc9d978a3cf37', '2da9a98c-4e87-4fe7-a4cb-842768118e09');
 
 insert into products (`ProductName`, `Price`, `Currency`) values ('product1', 12, 'RON');
 insert into products (`ProductName`, `Price`, `Currency`) values ('product2', 21, 'RON');
