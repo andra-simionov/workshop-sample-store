@@ -157,9 +157,12 @@
                                         {$orderInfo['OrderStatus']}
                                     </td>
                                     <td>
+                                        {if $orderInfo['OrderStatus'] == 'PAID'}
                                         <button class="button border-radius background-primary text-size-12 text-white text-strong" onclick="refund('{site_url()}', '{$orderInfo['OrderReference']}', {$idUser})">
                                             REFUND
                                         </button>
+                                        {else} -
+                                        {/if}
                                     </td>
                                 </tr>
                             {/foreach}
