@@ -46,7 +46,7 @@ class ApiClient
         $apiCredentials = $this->CI->AuthenticatorModel->getApiCredentials();
 
         $headers = [
-            'Authorization :' . $apiCredentials->ClientId . ',' . $apiCredentials->SecretKey,
+            'Authorization :' . $apiCredentials->StoreId . ',' . $apiCredentials->SecretKey,
             'Content-Type: application/json',
         ];
 

@@ -18,4 +18,4 @@ insert into orders (`IdUser`, `IdProduct`, `Date`, `OrderReference`) values (1, 
 insert into orders (`IdUser`, `IdProduct`, `Date`, `OrderReference`) values (1, 1, '2017-02-03 18:07:00', '14254');
 insert into orders (`IdUser`, `IdProduct`, `Date`, `OrderReference`) values (1, 3, '2017-03-14 19:54:00', '87453');
 
-INSERT INTO `store_credentials` (`ClientId`, `SecretKey`, `AddDate`) VALUES ('Diana_ID10', 'Diana_TEST', 'diana@yahoo.com', NOW());
+INSERT INTO `store_credentials` (`StoreId`, `SecretKey`, `AddDate`) VALUES ('SampleStore_ID19', 'SampleStore_TEST', NOW());
