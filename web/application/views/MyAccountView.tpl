@@ -93,14 +93,14 @@
                         <div class="s-12 m-12 l-6">
                             <h2 class="text-uppercase text-strong margin-bottom-30">Update your token for online payments</h2>
                             <form class="customform">
-                                <div class="line">
+                                <div class="line"><h5>Current token:</h5>
                                     <div class="margin">
-                                        <div class="s-12 m-12 l-6"> Current token:
-                                            <input name="token" id="token" value="{$token}" class="required email border-radius" placeholder="{$token}" type="text" />
+                                        <div class="s-12 m-12 l-6">
+                                            <input name="token" id="token" value="{$token}" class="required-input name border-radius" placeholder="{$token}" type="text" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white"                                   type="submit">Update</button></div>
+                                </div><br/>
+                                <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white" type="submit">Update</button></div>
                             </form>
                         {form_close()}
 
