@@ -105,7 +105,7 @@ class SendService
 
         $orderReference = $responseParameters['orderData']['reference'];
 
-        if ($responseParameters['meta']['status'] == 'OK') {
+        if ($responseParameters['meta']['status'] == 'Ok') {
             $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_PAID);
         } else {
             $this->CI->OrderModel->updateOrderStatus($orderReference, Payment::ORDER_STATUS_FAILED);
@@ -120,7 +120,7 @@ class SendService
         $responseParameters = $this->parseApiResponse($response);
         $orderReference = $responseParameters['orderData']['reference'];
 
-        if ($responseParameters['meta']['status'] == 'OK') {
+        if ($responseParameters['meta']['status'] == 'Ok') {
             $this->CI->OrderModel->updateOrderStatus($orderReference, Refund::ORDER_STATUS_REFUNDED);
         } else {
             $this->CI->OrderModel->updateOrderStatus($orderReference, Refund::ORDER_STATUS_REJECTED);
