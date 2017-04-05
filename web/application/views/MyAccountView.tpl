@@ -54,7 +54,7 @@
 
                     <!-- Account Information -->
                     <div class="s-12 m-12 l-12">
-                        <h2 class="text-uppercase text-strong margin-bottom-30">User Profile</h2>
+                        <h2 class="text-uppercase text-strong margin-bottom-30">User Info</h2>
                         <div class="margin-bottom">
                             <h4 class="margin-bottom-0">Username: {$username}</h4>
                         </div>
