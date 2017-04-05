@@ -99,7 +99,7 @@ class ReceiveService
     {
         $responseParameters = json_decode($response, true);
 
-        if ($responseParameters['meta']['status'] == 'OK') {
+        if ($responseParameters['meta']['status'] == 'Ok') {
             $balance = $responseParameters['userData']['balance'];
         } else {
             throw new \Exception($responseParameters['meta']['message']);
@@ -119,7 +119,7 @@ class ReceiveService
     {
         $responseParameters = json_decode($response, true);
 
-        if ($responseParameters['meta']['status'] == 'OK') {
+        if ($responseParameters['meta']['status'] == 'Ok') {
             $cardData = $responseParameters['cardData'];
         } else {
             throw new \Exception($responseParameters['meta']['message']);
