@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class SampleStore extends CI_Controller
+class SampleStore extends Base_Controller
 {
     public function index()
     {
