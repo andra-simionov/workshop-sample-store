@@ -11,8 +11,8 @@ class ApiClient
 
     const API_ENDPOINT_PAY = "pay";
     const API_ENDPOINT_REFUND = "refund";
-    const API_ENDPOINT_GET_BALANCE = "getBalance";
-    const API_ENDPOINT_GET_CARD_DATA = "getCardData";
+    const API_ENDPOINT_GET_BALANCE = "balance";
+    const API_ENDPOINT_GET_CARD_DATA = "cardData";
 
     public function generateUUID()
     {
