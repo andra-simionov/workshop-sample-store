@@ -49,20 +49,6 @@ class UserModel extends CI_Model
     }
 
     /**
-     * @param int $idUser
-     * @param string $token
-     *
-     * @return bool
-     */
-    public function updateToken($idUser, $token)
-    {
-        $this->db->where('IdUser', $idUser)
-            ->update('users', ['Token' => $token]);
-
-        return $this->db->affected_rows() > 0;
-    }
-
-    /**
      * @param string $email
      *
      * @return bool

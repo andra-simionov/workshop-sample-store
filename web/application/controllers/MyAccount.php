@@ -29,22 +29,6 @@ class MyAccount extends CI_Controller
     }
 
     /**
-     * @return bool
-     */
-    public function updateToken()
-    {
-        $this->load->helper(['form', 'url']);
-        $this->load->library('form_validation');
-
-        $token = $this->input->post('token');
-        $idUser = $this->getIdOfCurrentUser();
-
-        $this->UserModel->updateToken($idUser, $token);
-
-        $this->index();
-    }
-
-    /**
      * @return int
      */
     private function getIdOfCurrentUser()
