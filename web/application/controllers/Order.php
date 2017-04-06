@@ -31,6 +31,9 @@ class Order extends CI_Controller
 
             $response = $this->sendservice->payOrder($userInfo->Token, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
+            $this->sendservice->interpretPayApiResponse($response);
+
+            echo $response;
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
