@@ -18,9 +18,6 @@ class Order extends CI_Controller
         $idUser = $this->input->post('idUser');
         $idProduct = $this->input->post('idProduct');
 
-//        $idUser = $this->input->get('idUser');
-//        $idProduct = $this->input->get('idProduct');
-
         try {
 
             $userInfo = $this->UserModel->getUserData($idUser);
