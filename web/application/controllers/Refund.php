@@ -17,20 +17,5 @@ class Refund extends CI_Controller
 
         $orderReference = $this->input->post('orderReference');
         $idUser = $this->input->post('idUser');
-
-        try {
-            $userInfo = $this->UserModel->getUserData($idUser);
-            $email = $userInfo->Email;
-
-            $orderInfo = $this->OrderModel->getOrderDataByOrderReference($orderReference);
-
-            $response = $this->sendservice->refundOrder($userInfo->Token, $email, $orderInfo->Price, $orderInfo->Currency, $orderReference);
-
-            $this->sendservice->interpretRefundApiResponse($response);
-
-            echo $response;
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
      }
 }

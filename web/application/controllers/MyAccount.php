@@ -19,24 +19,6 @@ class MyAccount extends CI_Controller
         $userOrders = $this->OrderModel->getUserOrders($idUser);
         $email = $userData->Email;
 
-        try {
-            $balanceInfo = $this->receiveservice->getBalance($email, $userData->Token);
-            $cardData = $this->receiveservice->getCardData($email, $userData->Token);
-
-            $isResponseTypeError = 0;
-
-            $this->smartyci->assign("balanceInfo", $balanceInfo);
-            $this->smartyci->assign("cardData", $cardData);
-
-        } catch (\Exception $exception) {
-
-            $isResponseTypeError = 1;
-
-            $errorMessage = $exception->getMessage();
-            $this->smartyci->assign("errorMessage", $errorMessage);
-        }
-
-        $this->smartyci->assign("isResponseTypeError", $isResponseTypeError);
         $this->smartyci->assign("idUser", $idUser);
         $this->smartyci->assign("email", $email);
         $this->smartyci->assign("token", $userData->Token);

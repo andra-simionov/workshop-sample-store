@@ -18,29 +18,10 @@ class Order extends CI_Controller
         $idUser = $this->input->post('idUser');
         $idProduct = $this->input->post('idProduct');
 
-//        $idUser = $this->input->get('idUser');
-//        $idProduct = $this->input->get('idProduct');
+        $userInfo = $this->UserModel->getUserData($idUser);
 
-        try {
-
-            $userInfo = $this->UserModel->getUserData($idUser);
-
-            $email = $userInfo->Email;
-
-            $productInfo = $this->SampleStoreModel->getProductDetails($idProduct);
-
-            $orderReference = $this->generateOrderReference();
-            $this->OrderModel->saveOrder($idUser, $idProduct, $orderReference);
-
-            $response = $this->sendservice->payOrder($userInfo->Token, $email, $productInfo->Price, $productInfo->Currency, $orderReference);
-
-            $this->sendservice->interpretPayApiResponse($response);
-
-            echo $response;
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
-
+        $orderReference = $this->generateOrderReference();
+        $this->OrderModel->saveOrder($idUser, $idProduct, $orderReference);
      }
 
     private function generateOrderReference()
