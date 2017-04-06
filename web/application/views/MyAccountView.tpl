@@ -62,6 +62,19 @@
                             <h4 class="margin-bottom-0">Email: {$email}</h4>
                         </div>
 
+                         {if $isResponseTypeError eq 0}
+
+                        <div class="margin-bottom">
+                            <h4 class="margin-bottom-0">Available balance: {$balanceInfo}</h4>
+                        </div>
+                        {else}
+
+                         <div class="margin-bottom">
+                             <h4 class="margin-bottom-0">{$errorMessage}</h4>
+                         </div>
+
+                         {/if}
+
                         <!-- Token Form -->
 
                         {form_open('MyAccount/updateToken')}
@@ -80,7 +93,7 @@
                             </form>
                         {form_close()}
 
-                  </div>
+                        </div>
                         <br><br><br><br><br><br><br><br>
                         <!-- Order History -->
 
