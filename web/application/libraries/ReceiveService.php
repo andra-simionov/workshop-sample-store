@@ -64,7 +64,7 @@ class ReceiveService
         if ($responseParameters['meta']['status'] == 'Ok') {
             $balance = $responseParameters['userData']['balance'];
         } else {
-          $balance = '';
+            throw new \Exception($responseParameters['meta']['message']);
         }
 
         return $balance;
