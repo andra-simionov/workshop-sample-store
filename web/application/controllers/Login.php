@@ -40,25 +40,32 @@ class Login extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            $userData = $this->UserModel->getUserInfoByUsername($username);
 
-            if ($userData == NULL) {
-                $correctCredentials = FALSE;
-            } else {
-                $correctCredentials = $this->UserModel->checkPassword($password, $userData->Password);
-            }
+            try {
+                $userData = $this->UserModel->getUserInfoByUsername($username);
 
-            if ($correctCredentials != TRUE) {
+                if ($userData == NULL) {
+                    $correctCredentials = FALSE;
+                } else {
+                    $correctCredentials = $this->UserModel->checkPassword($password, $userData->Password);
+                }
+
+                if ($correctCredentials != TRUE) {
+                    $this->smartyci->assign('error', 'Invalid username or password');
+                    $this->smartyci->display('Login/LoginError.tpl');
+                } else {
+                    $userInfo = $this->UserModel->getUserInfoByUsername($username);
+
+                    $userId = $userInfo->IdUser;
+                    $this->session->set_userdata(['IdUser' => $userId]);
+
+                    redirect('SampleStore');
+                }
+            } catch (Exception $exception) {
                 $this->smartyci->assign('error', 'Invalid username or password');
                 $this->smartyci->display('Login/LoginError.tpl');
-            } else {
-                $userInfo = $this->UserModel->getUserInfoByUsername($username);
-
-                $userId = $userInfo->IdUser;
-                $this->session->set_userdata(['IdUser' => $userId]);
-
-                redirect('SampleStore');
             }
+
         } else {
             redirect('SampleStore');
          }

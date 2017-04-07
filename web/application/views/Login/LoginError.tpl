@@ -40,9 +40,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <div class="description">
-                        <p>Sign in failed</p>
-                    </div>
+
                 </div>
             </div>
             <div class="row">
@@ -66,7 +64,9 @@
                             <input type="password" name="password" id="password" placeholder="Password..." class="form-password form-control" id="form-password">
                         </div>
 
-                        {$error}
+                        <div class="validation-error">
+                            {$error}
+                        </div>
 
                         <div class="submit">
                             <input type="submit" value="Submit" />
