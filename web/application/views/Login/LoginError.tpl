@@ -66,7 +66,9 @@
                             <input type="password" name="password" id="password" placeholder="Password..." class="form-password form-control" id="form-password">
                         </div>
 
-                        {$error}
+                        <div class="validation-error">
+                            {$error}
+                        </div>
 
                         <div class="submit">
                             <input type="submit" value="Submit" />
