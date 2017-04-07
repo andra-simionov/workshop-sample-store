@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="validation-error">
-                            {validation_errors()}
+                            {$error}
                         </div>
 
                         <div class="submit">
