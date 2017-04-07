@@ -21,12 +21,10 @@ class MyAccount extends CI_Controller
 
         try {
             $balanceInfo = $this->receiveservice->getBalance($email, $userData->Token);
-            $cardData = $this->receiveservice->getCardData($email, $userData->Token);
 
             $isResponseTypeError = 0;
 
             $this->smartyci->assign("balanceInfo", $balanceInfo);
-            $this->smartyci->assign("cardData", $cardData);
 
         } catch (\Exception $exception) {
 
