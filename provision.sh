@@ -18,6 +18,8 @@ main() {
 	mysql_go
 	php_go
 	autoremove_go
+    echo "cd /vagrant" >> /home/vagrant/.bashrc
+
 }
 
 repositories_go() {
