@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 	PRIMARY KEY (`IdOrder`)
 )
 COLLATE='utf8_general_ci'
-ENGINE=InnoDBv
+ENGINE=InnoDB
 AUTO_INCREMENT=0;
 
 CREATE TABLE IF NOT EXISTS `store_credentials` (
