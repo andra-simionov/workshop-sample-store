@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `store_credentials` (
 	`IdStoreCredentials` INT(11) NOT NULL AUTO_INCREMENT,
 	`StoreId` VARCHAR(50) NOT NULL DEFAULT '',
 	`SecretKey` VARCHAR(50) NOT NULL DEFAULT '',
-	`AddDate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`AddDate` DATETIME NOT NULL,
 	PRIMARY KEY (`IdStoreCredentials`)
 )
 COLLATE='utf8_general_ci'
