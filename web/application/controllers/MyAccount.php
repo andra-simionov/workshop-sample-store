@@ -29,7 +29,7 @@ class MyAccount extends CI_Controller
 
             $isResponseTypeError = 1;
 
-            $errorMessage = $exception->getMessage();
+            $errorMessage = 'Bank not available! ' . $exception->getMessage();
             $this->smartyci->assign("errorMessage", $errorMessage);
         }
 

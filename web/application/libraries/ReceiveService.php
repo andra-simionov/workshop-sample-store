@@ -59,6 +59,7 @@ class ReceiveService
      */
     public function extractBalanceFromBankResponse($response)
     {
+		//TODO: better validate response (HTTP response code, valid json)
         $responseParameters = json_decode($response, true);
 
         if ($responseParameters['meta']['status'] == 'Ok') {
