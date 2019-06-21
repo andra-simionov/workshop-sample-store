@@ -1,23 +1,30 @@
 
 function buy(idProduct, idUser) {
-    $.post("Order", {idProduct: idProduct, idUser: idUser}).done(function () {
-        showNotification('top', 'center');
-    })
+    $.post("Order", {idProduct: idProduct, idUser: idUser})
+		.done(function (response) {
+			if(undefined === response.success) {
+				return showNotification('Store error!', 'danger');
+			}
+
+        	return showNotification(response.message, response.success ? 'success' : 'warning');
+    	})
+		.fail(function () {
+			return showNotification('Store error!', 'danger');
+		})
 }
 
-function showNotification(from, align){
-    color = Math.floor((Math.random() * 6) + 1);
+function showNotification(message, type){
 
     $.notify({
         icon: "ti-gift",
-        message: "<center>You just ordered the product!</center>"
+        message: message
 
     },{
-        type: 'info',
+        type: type,
         timer: 4000,
         placement: {
-            from: from,
-            align: align
+            from: 'top',
+            align: 'center'
         }
     });
 }

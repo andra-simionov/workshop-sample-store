@@ -141,7 +141,7 @@ class HttpClient
 
             $options = array(
                 CURLOPT_URL => $this->url,
-                CURLOPT_POST => count($post_data),
+                CURLOPT_POST => 1,
                 CURLOPT_POSTFIELDS => $post_data,
             );
 

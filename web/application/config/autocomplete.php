@@ -65,6 +65,8 @@
  * @property Format $format
  * @property ReceiveService $receiveservice
  * @property SendService $sendservice
+ * @property ApiClient $apiclient
+ * @property HttpClient $httpclient
  * @property Smartyci $smartyci
  *
  *
