@@ -63,8 +63,8 @@
  * @property CI_Xmlrpcs $xmlrpcs                  XML-RPC server class
  * @property CI_Zip $zip                          Zip Compression Class
  * @property Format $format
- * @property RequestProcessor $requestprocessor
- * @property RequestValidator $requestvalidator
+ * @property ReceiveService $receiveservice
+ * @property SendService $sendservice
  * @property Smartyci $smartyci
  *
  *
@@ -91,15 +91,13 @@
  *  load the model with Capital letter $this->load->model('People') ;
  *  $this->People-> will show all the methods in the People model
  *
- * @property CardDataModel $CardDataModel
+ * @property SampleStoreModel $SampleStoreModel
  *
- * @property RequestProcessorModel $RequestProcessorModel
+ * @property AuthenticatorModel $AuthenticatorModel
  *
- * @property RequestValidatorModel $RequestValidatorModel
+ * @property OrderModel $OrderModel
  *
- * @property TokenModel $TokenModel
- *
- * @property UserDataModel $UserDataModel
+ * @property UserModel $UserModel
  *
  */
 class CI_Controller
