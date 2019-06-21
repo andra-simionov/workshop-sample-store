@@ -128,7 +128,7 @@
                             {foreach  $orders as $index => $orderInfo}
                                 <tr>
                                     <td>
-                                        {$index}
+                                        {$index+1}
                                     </td>
                                     <td>
                                         {$orderInfo['Date']}

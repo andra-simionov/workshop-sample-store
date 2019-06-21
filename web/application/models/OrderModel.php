@@ -18,6 +18,7 @@ class OrderModel extends CI_Model
             ->from('orders')
             ->join('products', 'products.IdProduct = orders.IdProduct', 'inner')
             ->where('orders.IdUser', $idUser)
+			->order_by('orders.Date', 'DESC')
             ->get()
             ->result_array();
 

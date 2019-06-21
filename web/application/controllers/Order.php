@@ -38,7 +38,7 @@ class Order extends CI_Controller
             echo $e->getMessage();
         }
 
-     }
+    }
 
     private function generateOrderReference()
     {
