@@ -13,10 +13,9 @@ function buy(idProduct, idUser) {
 		})
 }
 
-function showNotification(message, type){
+function showNotification(message, type) {
 
     $.notify({
-        icon: "ti-gift",
         message: message
 
     },{
