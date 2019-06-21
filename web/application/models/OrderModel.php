@@ -25,6 +25,20 @@ class OrderModel extends CI_Model
     }
 
     /**
+     * @param string $orderReference
+     * @param string $status
+     *
+     * @return bool
+     */
+    public function updateOrderStatus($orderReference, $status)
+    {
+        $this->db->where('OrderReference', $orderReference)
+            ->update('orders', ['OrderStatus' => $status]);
+
+        return $this->db->affected_rows() > 0;
+    }
+
+    /**
      * @param int $idUser
      * @param int $idProduct
      * @param string $orderReference
