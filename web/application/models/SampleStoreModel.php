@@ -5,7 +5,7 @@ class SampleStoreModel extends CI_Model
     /**
      * @return array
      */
-    public function getAllProducts()
+    public function getAllProducts(): array
     {
         $result = $this->db->select(['ProductName', 'Price', 'IdProduct', 'Currency'])
             ->from('products')
@@ -22,7 +22,7 @@ class SampleStoreModel extends CI_Model
      *
      * @throws Exception
      */
-    public function getProductDetails($idProduct)
+    public function getProductDetails($idProduct): stdClass
     {
         $result = $this->db->select('*')
             ->from('products')

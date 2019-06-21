@@ -12,7 +12,7 @@ class OrderModel extends CI_Model
      *
      * @return array
      */
-    public function getUserOrders($idUser)
+    public function getUserOrders($idUser): array
     {
         $result = $this->db->select('*')
             ->from('orders')
@@ -32,7 +32,7 @@ class OrderModel extends CI_Model
      *
      * @return bool
      */
-    public function saveOrder($idUser, $idProduct, $orderReference)
+    public function saveOrder($idUser, $idProduct, $orderReference): bool
     {
         $data = [
             'IdUser' => $idUser,
@@ -52,29 +52,11 @@ class OrderModel extends CI_Model
 	 *
 	 * @return bool
 	 */
-	public function updateOrderStatus($orderReference, $status)
+	public function updateOrderStatus($orderReference, $status): bool
 	{
 		$this->db->where('OrderReference', $orderReference)
 			->update('orders', ['OrderStatus' => $status]);
 
 		return $this->db->affected_rows() > 0;
 	}
-
-	/**
-	 * @param $orderReference
-	 * @return mixed
-	 */
-	public function getOrderDataByOrderReference($orderReference)
-	{
-		$result = $this->db->select('products.Price, products.Currency')
-			->from('orders')
-			->where('orders.OrderReference', $orderReference)
-			->join('products', 'orders.IdProduct = products.IdProduct')
-			->get()
-			->first_row();
-
-		return $result;
-	}
-
-
 }

@@ -14,7 +14,7 @@ class UserModel extends CI_Model
      *
      * @return bool
      */
-    public function registerUser($username, $password, $email)
+    public function registerUser($username, $password, $email): bool
     {
         $userData = [
             'Username' => $username,
@@ -22,7 +22,7 @@ class UserModel extends CI_Model
             'Email' => $email,
         ];
 
-        $this->db->insert('users', $userData);
+        return $this->db->insert('users', $userData);
     }
 
     /**
@@ -30,7 +30,7 @@ class UserModel extends CI_Model
      *
      * @return bool
      */
-    public function isUserRegistered(array $data)
+    public function isUserRegistered(array $data): bool
     {
         $username = $data['username'];
         $password = $data['password'];
@@ -41,11 +41,7 @@ class UserModel extends CI_Model
             ->get()
             ->result_array();
 
-        if (count($result) > 0) {
-            return true;
-        }
-
-        return false;
+        return count($result) > 0;
     }
 
     /**
@@ -54,7 +50,7 @@ class UserModel extends CI_Model
      *
      * @return bool
      */
-    public function updateToken($idUser, $token)
+    public function updateToken($idUser, $token): bool
     {
         $token = trim($token);
 
@@ -69,7 +65,7 @@ class UserModel extends CI_Model
      *
      * @return bool
      */
-    public function emailAlreadyExists($email)
+    public function emailAlreadyExists($email): bool
     {
         $result = $this->db->select('*')
             ->from('users')
@@ -90,7 +86,7 @@ class UserModel extends CI_Model
      *
      * @throws Exception
      */
-    public function getUserData($idUser)
+    public function getUserData($idUser): stdClass
     {
         $result = $this->db->select('*')
             ->from('users')
@@ -110,7 +106,7 @@ class UserModel extends CI_Model
      *
      * @throws Exception
      */
-    public function getUserInfoByUsername($username)
+    public function getUserInfoByUsername($username): stdClass
     {
         $result = $this->db->select('*')
             ->from('users')
@@ -128,7 +124,7 @@ class UserModel extends CI_Model
      * @param string $password
      * @return string
      */
-    public function hashPassword($password)
+    public function hashPassword($password): string
     {
         $salt = $this->generateSalt();
         return $salt . '.' . md5($salt . $password);
@@ -139,7 +135,7 @@ class UserModel extends CI_Model
      * @param string $hashedPassword
      * @return bool
      */
-    public function checkPassword($password, $hashedPassword)
+    public function checkPassword($password, $hashedPassword): bool
     {
         list($salt, $hash) = explode('.', $hashedPassword);
         $hashedFormPassword = $salt . '.' . md5($salt . $password);
@@ -150,7 +146,7 @@ class UserModel extends CI_Model
      * @param int $length
      * @return string
      */
-    private function generateSalt($length = 10)
+    private function generateSalt($length = 10): string
     {
         $characterList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         $i = 0;

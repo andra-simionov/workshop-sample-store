@@ -12,7 +12,7 @@ class AuthenticatorModel extends CI_Model
 	 *
 	 * @throws Exception
 	 */
-	public function getApiCredentials()
+	public function getApiCredentials(): stdClass
 	{
 		$result = $this->db->select('*')
 			->from('store_credentials')
