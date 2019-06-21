@@ -56,6 +56,8 @@ class UserModel extends CI_Model
      */
     public function updateToken($idUser, $token)
     {
+        $token = trim($token);
+
         $this->db->where('IdUser', $idUser)
             ->update('users', ['Token' => $token]);
 
