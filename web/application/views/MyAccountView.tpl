@@ -54,53 +54,53 @@
 
                     <!-- Account Information -->
                     <div class="s-12 m-12 l-12">
-                        <h2 class="text-uppercase text-strong margin-bottom-30">User Info</h2>
-                        <div class="margin-bottom">
-                            <h4 class="margin-bottom-0">Username: {$username}</h4>
-                        </div>
-                        <div class="margin-bottom">
-                            <h4 class="margin-bottom-0">Email: {$email}</h4>
-                        </div>
+                        <div style="height: 300px">
 
-                         {if $isResponseTypeError eq 0}
+                            <!-- User Info -->
+                            <div class="s-12 m-12 l-6">
+                                <h2 class="text-uppercase text-strong margin-bottom-30">User Info</h2>
+                                <div class="margin-bottom">
+                                    <h4 class="margin-bottom-0"><b>Username: </b>{$username}</h4>
+                                </div>
+                                <div class="margin-bottom">
+                                    <h4 class="margin-bottom-0"><b>Email:</b> {$email}</h4>
+                                </div>
 
-                        <div class="margin-bottom">
-                            <h4 class="margin-bottom-0">Available balance: {$balanceInfo}</h4>
-                        </div>
+                                 {if $isResponseTypeError eq 0}
+                                    <div class="margin-bottom">
+                                        <h4 class="margin-bottom-0"><b>Available balance: </b>{$balanceInfo}</h4>
+                                    </div><br>
+                                {else}
+                                     <div class="alert alert-danger" role="alert" style="width: 80%">
+                                         <h4 class="margin-bottom-0" >{$errorMessage} !</h4>
+                                     </div>
+                                 {/if}
+                            </div>
 
-                        <br>
+                            <!-- Token Form -->
 
-                        {else}
-
-                         <div class="margin-bottom">
-                             <h4 class="margin-bottom-0">{$errorMessage}</h4>
-                         </div>
-
-                         {/if}
-
-                        <!-- Token Form -->
-
-                        {form_open('MyAccount/updateToken')}
-
-                        <div class="s-12 m-12 l-6">
-                            <h2 class="text-uppercase text-strong margin-bottom-30">Update your token for online payments</h2>
-                            <form class="customform">
-                                <div class="line"><h5>Current token:</h5>
-                                    <div class="margin">
-                                        <div class="s-12 m-12 l-6">
-                                            <input name="token" id="token" value="{$token}" class="required-input name border-radius" placeholder="{$token}" type="text" />
+                            <div class="s-12 m-12 l-6">
+                                {form_open('MyAccount/updateToken')}
+                                <h2 class="text-uppercase text-strong margin-bottom-30">Update your token for online payments</h2>
+                                <form class="customform">
+                                    <div class="line"><h5>Current token:</h5>
+                                        <div class="margin">
+                                            <div class="s-12 m-12 l-6">
+                                                <input name="token" id="token" value="{$token}" class="required-input name border-radius" placeholder="{$token}" type="text" />
+                                            </div>
                                         </div>
-                                    </div>
-                                </div><br/>
-                                <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white" type="submit">Update</button></div>
-                            </form>
-                        {form_close()}
+                                    </div><br/>
+                                    <div class="s-12 m-12 l-4"><button class="submit-form button background-primary border-radius text-white" type="submit">Update</button></div>
+                                </form>
+                                {form_close()}
+                            </div>
+                        </div>
 
-                  </div>
-                        <br><br><br><br><br><br><br><br>
                         <!-- Order History -->
+                        <div class="s-12 m-12 l-12">
+                            <h2 class="text-uppercase text-strong margin-bottom-30">Order History</h2>
+                        </div>
 
-                        <h2 class="text-uppercase text-strong margin-bottom-30">Order History</h2>
                         <table class="section background-white">
                             <tr>
                                 <th>
