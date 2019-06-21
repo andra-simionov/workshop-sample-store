@@ -21,15 +21,18 @@ class MyAccount extends CI_Controller
 
         try {
             $balanceInfo = $this->receiveservice->getBalance($email, $userData->Token);
+            $cardData = $this->receiveservice->getCardData($email, $userData->Token);
 
             $isResponseTypeError = 0;
 
             $this->smartyci->assign("balanceInfo", $balanceInfo);
+            $this->smartyci->assign("cardData", $cardData);
+
         } catch (\Exception $exception) {
 
             $isResponseTypeError = 1;
 
-            $errorMessage = 'Bank not available! ' . $exception->getMessage();
+            $errorMessage = $exception->getMessage();
             $this->smartyci->assign("errorMessage", $errorMessage);
         }
 
@@ -41,6 +44,22 @@ class MyAccount extends CI_Controller
         $this->smartyci->assign("orders", $userOrders);
 
         $this->smartyci->display('MyAccountView.tpl');
+    }
+
+    /**
+     * @return bool
+     */
+    public function updateToken()
+    {
+        $this->load->helper(['form', 'url']);
+        $this->load->library('form_validation');
+
+        $token = $this->input->post('token');
+        $idUser = $this->getIdOfCurrentUser();
+
+        $this->UserModel->updateToken($idUser, $token);
+
+        $this->index();
     }
 
     /**
