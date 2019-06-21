@@ -19,19 +19,7 @@ class MyAccount extends CI_Controller
         $userOrders = $this->OrderModel->getUserOrders($idUser);
         $email = $userData->Email;
 
-        try {
-            $balanceInfo = $this->receiveservice->getBalance($email, $userData->Token);
-
-            $isResponseTypeError = 0;
-
-
-        } catch (\Exception $exception) {
-
-            $isResponseTypeError = 1;
-
-            $errorMessage = $exception->getMessage();
-            $this->smartyci->assign("errorMessage", $errorMessage);
-        }
+        //TODO 3: let's get the user's balance from bank
 
         $this->smartyci->assign("idUser", $idUser);
         $this->smartyci->assign("email", $email);

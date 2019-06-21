@@ -43,8 +43,8 @@ class ReceiveService
 
             $response = $this->CI->httpclient->getResults();
 
-            $balance = $this->extractBalanceFromBankResponse($response);
-            return $balance;
+            //TODO 3: let's handle the response, so we can return something meaningful to the user
+            return $response;
 
         } else {
             throw new \Exception($this->CI->httpclient->getErrorMsg());
@@ -59,16 +59,7 @@ class ReceiveService
      */
     public function extractBalanceFromBankResponse($response)
     {
-		//TODO: better validate response (HTTP response code, valid json)
-        $responseParameters = json_decode($response, true);
-
-        if ($responseParameters['meta']['status'] == 'Ok') {
-            $balance = $responseParameters['userData']['balance'];
-        } else {
-            throw new \Exception($responseParameters['meta']['message']);
-        }
-
-        return $balance;
+		//TODO 3: how about that response handling (maybe we can read the balance value from response here?)
     }
 
 }
