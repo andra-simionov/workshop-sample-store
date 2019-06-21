@@ -24,7 +24,6 @@ class MyAccount extends CI_Controller
 
             $isResponseTypeError = 0;
 
-            $this->smartyci->assign("balanceInfo", $balanceInfo);
 
         } catch (\Exception $exception) {
 
@@ -34,7 +33,6 @@ class MyAccount extends CI_Controller
             $this->smartyci->assign("errorMessage", $errorMessage);
         }
 
-        $this->smartyci->assign("isResponseTypeError", $isResponseTypeError);
         $this->smartyci->assign("idUser", $idUser);
         $this->smartyci->assign("email", $email);
         $this->smartyci->assign("token", $userData->Token);

@@ -66,15 +66,7 @@
                                     <h4 class="margin-bottom-0"><b>Email:</b> {$email}</h4>
                                 </div>
 
-                                 {if $isResponseTypeError eq 0}
-                                    <div class="margin-bottom">
-                                        <h4 class="margin-bottom-0"><b>Available balance: </b>{$balanceInfo}</h4>
-                                    </div><br>
-                                {else}
-                                     <div class="alert alert-danger" role="alert" style="width: 80%">
-                                         <h4 class="margin-bottom-0" >{$errorMessage} !</h4>
-                                     </div>
-                                 {/if}
+                                 <!-- TODO 4: let's display the user's balance -->
                             </div>
 
                             <!-- Token Form -->
