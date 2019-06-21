@@ -81,7 +81,7 @@
 
                             <div class="s-12 m-12 l-6">
                                 {form_open('MyAccount/updateToken')}
-                                <h2 class="text-uppercase text-strong margin-bottom-30">Update your token for online payments</h2>
+                                <h2 class="text-uppercase text-strong margin-bottom-30">Update token for online payments</h2>
                                 <form class="customform">
                                     <div class="line"><h5>Current token:</h5>
                                         <div class="margin">
