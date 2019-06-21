@@ -40,9 +40,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <div class="description">
-                        <p>Sign in failed</p>
-                    </div>
+
                 </div>
             </div>
             <div class="row">
@@ -67,7 +65,7 @@
                         </div>
 
                         <div class="validation-error">
-                           {$error}
+                            {$error}
                         </div>
 
                         <div class="submit">

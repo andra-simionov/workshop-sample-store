@@ -40,6 +40,7 @@ class Login extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
+
             try {
                 $userData = $this->UserModel->getUserInfoByUsername($username);
 
