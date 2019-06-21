@@ -1,4 +1,5 @@
 function refund(baseUrl, orderReference, idUser) {
+	//TODO 9: this might not work as expected
 	$.post(baseUrl + "Refund", {orderReference: orderReference, idUser: idUser})
 		.done(function (response) {
 			if (undefined === response.success) {

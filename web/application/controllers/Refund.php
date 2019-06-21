@@ -25,9 +25,10 @@ class Refund extends CI_Controller
             $orderInfo = $this->OrderModel->getOrderDataByOrderReference($orderReference);
 
             $apiCredentials = $this->AuthenticatorModel->getApiCredentials($email);
-            $response = $this->sendservice->refundOrder($apiCredentials, $email, $orderInfo->Price, $orderInfo->Currency, $orderReference);
 
-            $this->sendservice->interpretRefundApiResponse($response);
+            $response = '';
+
+			//TODO 9: make a refund call to bank
 
             echo $response;
         } catch (\Exception $e) {
