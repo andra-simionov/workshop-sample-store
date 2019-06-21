@@ -33,7 +33,7 @@ class Order extends CI_Controller
 
             $bankResponse = $this->sendservice->payOrder($userInfo->Token, $userInfo->Email, $productInfo->Price, $productInfo->Currency, $orderReference);
 
-            $storeResponse = $this->sendservice->interpretPayApiResponse($bankResponse);
+            //TODO 5: handle $bankResponse (SendService might already know how to do that)
 
         } catch (\Exception $e) {
 

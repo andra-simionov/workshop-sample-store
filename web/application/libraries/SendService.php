@@ -27,33 +27,11 @@ class SendService
      */
     function payOrder($token, $email, $price, $currency, $orderReference)
     {
-        $headers = $this->CI->apiclient->getHeaders();
+        //TODO 5: build request (don't forget about headers)
 
-        $data = [
-            'requestId' => $this->CI->apiclient->generateUUID(),
-            'timestamp' => date('Y-m-d h:i:s'),
-            'email' => $email,
-            'token' => $token,
-            'orderData' => [
-                'reference' => $orderReference,
-                'amount' => $price,
-                'currency' => $currency
-            ]
-        ];
-
-        $this->CI->load->library('HttpClient',
-            [
-                'headers' => $headers,
-                'data' => json_encode($data),
-                'url' => ApiClient::BANK_URL . ApiClient::API_ENDPOINT_PAY
-            ]
-        );
-
-        if ($this->CI->httpclient->post()){
-            return $this->CI->httpclient->getResults();
-        } else {
-            throw new \Exception($this->CI->httpclient->getErrorMsg());
-        }
+		//TODO 5: initialize an HTTP client using the above request
+		//
+		//TODO 5: make the request & handle the response
     }
 
 	/**
