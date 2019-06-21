@@ -43,7 +43,8 @@ class ApiClient
      */
     public function getHeaders()
     {
-        $encryptedApiCredentials = "";
+		$apiCredentials = $this->CI->AuthenticatorModel->getApiCredentials();
+		$encryptedApiCredentials = base64_encode($apiCredentials->StoreId . ',' . $apiCredentials->SecretKey);
 
         $headers = [
             'Authorization :' . $encryptedApiCredentials,
