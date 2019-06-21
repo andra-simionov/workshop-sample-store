@@ -47,7 +47,7 @@ class ApiClient
 		$encryptedApiCredentials = base64_encode($apiCredentials->StoreId . ',' . $apiCredentials->SecretKey);
 
         $headers = [
-            'Authorization :' . $encryptedApiCredentials,
+            'Authorization:' . $encryptedApiCredentials,
             'Content-Type: application/json',
         ];
 
